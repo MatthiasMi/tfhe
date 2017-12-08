@@ -28,14 +28,14 @@ EXPORT TFheGateBootstrappingParameterSet *new_default_gate_bootstrapping_paramet
 
     static const int32_t N = 1024;
     static const int32_t k = 1;
-    static const int32_t n = 500;
-    static const int32_t bk_l = 2;
-    static const int32_t bk_Bgbit = 10;
-    static const int32_t ks_basebit = 2;
-    static const int32_t ks_length = 8;
-    static const double ks_stdev = mulBySqrtTwoOverPi(pow(2., -15));   //standard deviation
-    static const double bk_stdev = mulBySqrtTwoOverPi(9.e-9);          //standard deviation
-    static const double max_stdev = mulBySqrtTwoOverPi(pow(2., -4) / 4.); //max standard deviation for a 1/4 msg space
+    static const int32_t n = 600;
+    static const int32_t bk_l = 3;
+    static const int32_t bk_Bgbit = 10; //<-- 2^10
+    static const int32_t ks_basebit = 1; //<-- 2^1
+    static const int32_t ks_length = 18;
+    static const double ks_stdev = pow(2., -25);//0;//mulBySqrtTwoOverPi(pow(2., -30));   //standard deviation
+    static const double bk_stdev = pow(2., -36);//0;//mulBySqrtTwoOverPi(pow(2., -30));          //standard deviation
+    static const double max_stdev = pow(2., -30);//0;//mulBySqrtTwoOverPi(pow(2., -30)); //max standard deviation for a 1/4 msg space
 
     LweParams *params_in = new_LweParams(n, ks_stdev, max_stdev);
     TLweParams *params_accum = new_TLweParams(N, k, bk_stdev, max_stdev);
