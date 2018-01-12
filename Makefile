@@ -42,6 +42,9 @@ src/test/googletest/CMakeLists.txt:
 	git submodule init
 	git submodule update
 
+windowed:
+    mkdir build; cd build; cmake ../src; cd ..
+
 alltests:
 	make distclean && make test CMAKE_COMPILER_OPTS="-DCMAKE_CXX_COMPILER=clang++-libc++ -DCMAKE_C_COMPILER=clang"
 	make distclean && make test CMAKE_COMPILER_OPTS="-DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang"
