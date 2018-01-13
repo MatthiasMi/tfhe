@@ -344,7 +344,7 @@ EXPORT void bootsMUX(LweSample *result, const LweSample *a, const LweSample *b, 
     lweAddTo(temp_result, a, in_out_params);
     lweAddTo(temp_result, b, in_out_params);
     // Bootstrap without KeySwitch
-    tfhe_bootstrap_woKS_FFT(u1, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_woKS_FFT(u1, bk->bkFFT, MU, temp_result, window_size);
 
 
     //compute "AND(not(a),c)": (0,-1/8) - a + c
@@ -352,7 +352,7 @@ EXPORT void bootsMUX(LweSample *result, const LweSample *a, const LweSample *b, 
     lweSubTo(temp_result, a, in_out_params);
     lweAddTo(temp_result, c, in_out_params);
     // Bootstrap without KeySwitch
-    tfhe_bootstrap_woKS_FFT(u2, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_woKS_FFT(u2, bk->bkFFT, MU, temp_result, window_size);
 
     // Add u1=u1+u2
     static const Torus32 MuxConst = modSwitchToTorus32(1, 8);

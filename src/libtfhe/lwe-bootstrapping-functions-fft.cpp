@@ -299,7 +299,7 @@ EXPORT void tfhe_bootstrap_FFT(LweSample *result,
 {
     LweSample *u = new_LweSample(&bk->accum_params->extracted_lweparams);
 
-    tfhe_bootstrap_woKS_FFT(u, bk, mu, x);
+    tfhe_bootstrap_woKS_FFT(u, bk, mu, x, window_size);
     // Key switching
     lweKeySwitch(result, bk->ks, u);
 

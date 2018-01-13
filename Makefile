@@ -27,14 +27,14 @@ build: src/test/googletest/CMakeLists.txt
 	mkdir build; cd build; cmake ../src; cd ..
 
 builddtests:
-	rm -rf $@; true; mkdir $@; 
-	cd $@; cmake ../src ${CMAKE_DTESTS_OPTS}; 
+	rm -rf $@; true; mkdir $@;
+	cd $@; cmake ../src ${CMAKE_DTESTS_OPTS};
 	cd $@; cmake ../src ${CMAKE_DTESTS_OPTS};
 	cd ..
 
 buildotests:
-	rm -rf $@; true; mkdir $@; 
-	cd $@; cmake ../src ${CMAKE_OTESTS_OPTS}; 
+	rm -rf $@; true; mkdir $@;
+	cd $@; cmake ../src ${CMAKE_OTESTS_OPTS};
 	cd $@; cmake ../src ${CMAKE_OTESTS_OPTS};
 	cd ..
 
@@ -43,7 +43,7 @@ src/test/googletest/CMakeLists.txt:
 	git submodule update
 
 windowed:
-    mkdir build; cd build; cmake ../src; cd ..
+	mkdir build; cd build; cmake ../src; cd ..
 
 alltests:
 	make distclean && make test CMAKE_COMPILER_OPTS="-DCMAKE_CXX_COMPILER=clang++-libc++ -DCMAKE_C_COMPILER=clang"
