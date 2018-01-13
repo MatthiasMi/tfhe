@@ -81,7 +81,7 @@ namespace {
 
 
     //generate a random ks
-    LweBootstrappingKey* new_random_bk_key(int32_t ks_t, int32_t ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params, unsigned int32_t window_size) {
+    LweBootstrappingKey* new_random_bk_key(int32_t ks_t, int32_t ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params, const uint32_t window_size) {
 	const int32_t n = in_out_params->n;
         const int32_t kpl = bk_params->kpl;
         const int32_t k = bk_params->tlwe_params->k;
@@ -485,16 +485,18 @@ namespace {
 
 
     class IOTest2 : public ::testing::Test {
+    const uint32_t window_size = 1;
         public:
            //we don't do anything with the FFT section
            LweBootstrappingKeyFFT* new_LweBootstrappingKeyFFT(const LweBootstrappingKey*) { return 0x0; }
-           void delete_LweBootstrappingKeyFFT(LweBootstrappingKeyFFT*) {}
+           void delete_LweBootstrappingKeyFFT(LweBootstrappingKeyFFT*, window_size) {}
 
 #define TFHE_TESTING_ENVIRONMENT
 #include "../libtfhe/tfhe_io.cpp"
     };
 
     TEST_F(IOTest2, TFheGateBootstrappingCloudKeySetIO) {
+    const uint32_t window_size = 1;
         for (const TFheGateBootstrappingCloudKeySet* gbck: allgbck) {
             {
                 ostringstream oss;
@@ -503,12 +505,13 @@ namespace {
                 istringstream iss(result);
                 TFheGateBootstrappingCloudKeySet* gbck1 = new_tfheGateBootstrappingCloudKeySet_fromStream(iss);
                 assert_equals(gbck,gbck1);
-                delete_gate_bootstrapping_cloud_keyset(gbck1);
+                delete_gate_bootstrapping_cloud_keyset(gbck1, window_size);
             }
         }
     }
 
     TEST_F(IOTest2, TFheGateBootstrappingSecretKeySetIO) {
+    const uint32_t window_size = 1;
         for (const TFheGateBootstrappingSecretKeySet* gbsk: allgbsk) {
             {
                 ostringstream oss;
@@ -517,7 +520,7 @@ namespace {
                 istringstream iss(result);
                 TFheGateBootstrappingSecretKeySet* gbsk1 = new_tfheGateBootstrappingSecretKeySet_fromStream(iss);
                 assert_equals(gbsk,gbsk1);
-                delete_gate_bootstrapping_secret_keyset(gbsk1);
+                delete_gate_bootstrapping_secret_keyset(gbsk1, window_size);
             }
         }
     }

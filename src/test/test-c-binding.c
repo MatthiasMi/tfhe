@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     printf("DEBUG MODE!\n");
 #endif
+    const const uint32_t window_size = 1;
 
     const int N = 1024;
     const int k = 1;
@@ -73,8 +74,8 @@ int main(int argc, char **argv) {
 
     int nbtrials = 50;
     clock_t begin = clock();
-    for (int i = 0; i < nbtrials; i++)
-        tfhe_bootstrap(test_out, bk, mu, test);
+    for (int32_t i = 0; i < nbtrials; i++)
+        tfhe_bootstrap(test_out, bk, mu, test,  window_size);
     clock_t end = clock();
     printf("finished bootstrapping in (microsecs)... %lf\n", (double) (end - begin) / (double) (nbtrials));
     Torus32 mu_out = lweSymDecrypt(test_out, key, 4);

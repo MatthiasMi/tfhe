@@ -5,7 +5,7 @@
 
 namespace {
 
-    // Fake TGSW structure 
+    // Fake TGSW structure
     struct FakeTGsw {
         //TODO: parallelization
         static const long FAKE_TGSW_UID = 123444802642375465l; // precaution: do not confuse fakes with trues
@@ -154,7 +154,7 @@ namespace {
     fake_tGswSymDecrypt(result, sample, key, Msize); \
     }
 
-    //EXPORT int tGswSymDecryptInt(const TGswSample* sample, const TGswKey* key); 
+    //EXPORT int32_t tGswSymDecryptInt(const TGswSample* sample, const TGswKey* key);
     //do we really decrypt Gsw samples?
 
     // support Functions for TGsw
@@ -219,7 +219,7 @@ namespace {
     //fonction de decomposition
     //EXPORT void tGswTLweDecompH(IntPolynomial* result, const TLweSample* sample, const TGswParams* params);
     //EXPORT void tGswTorus32PolynomialDecompH(IntPolynomial* result, const TorusPolynomial* sample, const TGswParams* params);
-    //EXPORT void tGswTLweDecompH(IntPolynomial* result, const TLweSample* sample,const TGswParams* params);	
+    //EXPORT void tGswTLweDecompH(IntPolynomial* result, const TLweSample* sample,const TGswParams* params);
 
     // result= (X^ai-1)*bk (ligne 5 de l'algo)
     inline void fake_tGswMulByXaiMinusOne(TGswSample *result, int ai, const TGswSample *bk, const TGswParams *params) {
@@ -266,8 +266,8 @@ namespace {
     /** result = result - p.sample */
     //EXPORT void tGswSubMulTo(TLweSample* result, int p, const TLweSample* sample, const TLweParams* params);
 
-    EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey *key_in, const TGswKey *rgsw_key);
-    EXPORT void tfhe_bootstrap(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x);
+    EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey *key_in, const TGswKey *rgsw_key, const uint32_t window_size);
+    EXPORT void tfhe_bootstrap(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x, const uint32_t window_size);
 
 }
 

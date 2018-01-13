@@ -2,509 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="src/test/lwe_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9938" topLine="236" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwe-keyswitch-functions.cpp" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2106" topLine="44" />
-		</Cursor>
-	</File>
-	<File name="src/test/nn_read_differentOrder.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="27128" topLine="622" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-tuple.h" open="0" top="0" tabpos="48" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="27205" topLine="919" />
-		</Cursor>
-	</File>
-	<File name="src/include/tlwe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11193" topLine="255" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-actions.h" open="0" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="39393" topLine="900" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-fma.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6338" topLine="177" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-spec-builders.h" open="0" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="65909" topLine="1709" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-avx.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6371" topLine="183" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-printers.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="17897" topLine="392" />
-		</Cursor>
-	</File>
-	<File name="src/test/polynomial_test.cpp" open="0" top="0" tabpos="51" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="25257" topLine="552" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lweparams.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="92" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-unaligned.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6339" topLine="191" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/lagrangehalfc_impl.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1143" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-bench.cpp" open="0" top="0" tabpos="41" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2132" topLine="54" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1209" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="src/test/io_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3241" topLine="66" />
-		</Cursor>
-	</File>
-	<File name="src/include/numeric_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1234" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/tlwe-fft.h" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="556" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/nayuki/fft-test.c" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1270" topLine="24" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-typed-test.h" open="0" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9875" topLine="208" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-c-binding.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1479" topLine="41" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-param-util-generated.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="175091" topLine="4659" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe_gate_bootstrapping_structures.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="452" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe_core.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2106" topLine="54" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-type-util.h" open="0" top="0" tabpos="49" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="90653" topLine="1602" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-param-util.h" open="0" top="0" tabpos="44" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3770" topLine="97" />
-		</Cursor>
-	</File>
-	<File name="src/test/arithmetic_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2606" topLine="72" />
-		</Cursor>
-	</File>
-	<File name="src/test/tlwe_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="23767" topLine="614" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/autogenerated.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1845" topLine="51" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-filepath.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3794" topLine="46" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-avx.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6480" topLine="200" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/lwe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7896" topLine="210" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/fftw/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4708" topLine="87" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tfhe_generic_streams.cpp" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1242" topLine="38" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwe-functions.cpp" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6041" topLine="195" />
-		</Cursor>
-	</File>
-	<File name="src/test/tlwe_fft_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6967" topLine="183" />
-		</Cursor>
-	</File>
-	<File name="src/test/nn.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="31620" topLine="719" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tgsw-fft-operations.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1051" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="src/include/tgsw.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7079" topLine="163" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/lagrangehalfc.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2146" topLine="58" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-addition-boot.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3627" topLine="87" />
-		</Cursor>
-	</File>
-	<File name="src/test/nn_master.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21822" topLine="532" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe_generic_templates.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1889" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src/include/lwesamples.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3032" topLine="40" />
-		</Cursor>
-	</File>
-	<File name="src/include/lwebootstrappingkey.h" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="628" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/samples/prime_tables.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3922" topLine="81" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="82480" topLine="2093" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/tlwe.h" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3107" topLine="51" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/toruspolynomial-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8124" topLine="224" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-message.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2918" topLine="32" />
-		</Cursor>
-	</File>
-	<File name="src/include/lwekey.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="193" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tlwe-functions.cpp" open="0" top="0" tabpos="55" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="438" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/nayuki/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4671" topLine="85" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-fma.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6498" topLine="194" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21476" topLine="594" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tfhe_io.cpp" open="0" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="30674" topLine="949" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwebootstrappingkey.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="218" topLine="2" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe_generic_streams.h" open="0" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3130" topLine="65" />
-		</Cursor>
-	</File>
-	<File name="src/include/lwekeyswitch.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1111" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="10400" topLine="214" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3557" topLine="47" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-more-actions.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5640" topLine="101" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-internal.h" open="0" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="39457" topLine="978" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest-printers.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1604" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1865" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="src/include/tgsw_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4385" topLine="74" />
-		</Cursor>
-	</File>
 	<File name="src/libtfhe/tfhe_gate_bootstrapping.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2340" topLine="47" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/boot-gates.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="12392" topLine="319" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-lwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1532" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-test-part.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5149" topLine="94" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/fftw/lagrangehalfc_impl.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="622" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="src/test/lwekeyswitch_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5611" topLine="124" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-unaligned.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7267" topLine="196" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/lwe-bootstrapping-fft.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8530" topLine="218" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-matchers.h" open="0" top="0" tabpos="42" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="156841" topLine="4284" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-long-run.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="604" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="src/test/boots_gates_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7234" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/internal/custom/gmock-port.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1582" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-model.cpp" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="17413" topLine="586" />
-		</Cursor>
-	</File>
-	<File name="src/test/bootstrapping_test_fft.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11761" topLine="361" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tgsw.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1363" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1582" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/include/polynomials.h" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="273" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-multiplication.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2683" topLine="76" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-bootstrapping-fft.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2490" topLine="66" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/samples/sample1.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1908" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/src/gtest-internal-inl.h" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="42056" topLine="1027" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/samples/sample4.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1966" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-function-mockers.h" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="40552" topLine="825" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tlwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="321" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tlwe-fft-operations.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2990" topLine="53" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5509" topLine="127" />
-		</Cursor>
-	</File>
-	<File name="src/test/bootstrapping_test.cpp" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="13563" topLine="400" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/polynomials.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3076" topLine="30" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwekeyswitch.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="449" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/test/production.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2140" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest-port.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1582" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/test/tgsw_fft_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="10731" topLine="280" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/lwe-keyswitch.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="643" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="src/include/lagrangehalfc_arithmetic.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="284" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src/test/googletest/googletest/test/gtest-param-test_test.h" open="0" top="0" tabpos="53" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -512,9 +12,44 @@
 			<Cursor1 position="2265" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-linked_ptr.h" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/libtfhe/fft_processors/nayuki/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2334" topLine="20" />
+			<Cursor1 position="4671" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/nayuki/fft-x8664-avx-aux.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5868" topLine="153" />
+		</Cursor>
+	</File>
+	<File name="src/include/lwe-functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2315" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/fftw/lagrangehalfc_impl.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="622" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/test/tlwe_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23767" topLine="614" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/xcode/Samples/FrameworkSample/widget.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2046" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest-port.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1582" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/lagrangehalfc_impl.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1143" topLine="7" />
 		</Cursor>
 	</File>
 	<File name="src/test/fakes/tgsw.h" open="0" top="0" tabpos="40" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -522,39 +57,24 @@
 			<Cursor1 position="4713" topLine="135" />
 		</Cursor>
 	</File>
-	<File name="src/test/tgsw_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/include/polynomials.h" open="0" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="29965" topLine="812" />
+			<Cursor1 position="273" topLine="11" />
 		</Cursor>
 	</File>
-	<File name="src/libtfhe/fft_processors/nayuki/fft-portable.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/libtfhe/lwebootstrappingkey.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4848" topLine="116" />
+			<Cursor1 position="218" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/fft_processor_spqlios.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/libtfhe/tgsw.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3779" topLine="71" />
+			<Cursor1 position="1363" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="src/include/polynomials_arithmetic.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-fma.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2567" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-string.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6501" topLine="108" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/internal/custom/gmock-matchers.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1671" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwe-bootstrapping-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7946" topLine="208" />
+			<Cursor1 position="6498" topLine="194" />
 		</Cursor>
 	</File>
 	<File name="src/libtfhe/fft_processors/nayuki/fft_processor_nayuki.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -562,14 +82,289 @@
 			<Cursor1 position="1147" topLine="33" />
 		</Cursor>
 	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-param-test.h" open="0" top="0" tabpos="52" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/include/tfhe_generic_streams.h" open="0" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8740" topLine="166" />
+			<Cursor1 position="3130" topLine="65" />
 		</Cursor>
 	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-actions.h" open="0" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/test/fakes/tlwe-fft.h" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="40134" topLine="1133" />
+			<Cursor1 position="556" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="src/test/arithmetic_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2606" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwekeyswitch.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="449" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/include/tlwe_functions.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2406" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-multiplication.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2683" topLine="76" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-decomp-tgsw.cpp" open="0" top="0" tabpos="50" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7685" topLine="185" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/samples/sample1.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1908" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-model.cpp" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17413" topLine="586" />
+		</Cursor>
+	</File>
+	<File name="src/include/polynomials_arithmetic.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2567" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="src/include/lwekeyswitch.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1111" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="src/test/boots_gates_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7234" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwe-bootstrapping-functions-fft.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7238" topLine="161" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-avx.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6480" topLine="200" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwe-functions.cpp" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6041" topLine="195" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-printers.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17897" topLine="392" />
+		</Cursor>
+	</File>
+	<File name="src/include/lwekey.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="193" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-param-util-generated.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="175091" topLine="4659" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-matchers.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="50690" topLine="1273" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/lwe-keyswitch.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="643" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lweparams.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="92" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/include/lagrangehalfc_arithmetic.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="284" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/fft_processor_spqlios.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3779" topLine="71" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/nayuki/fft-test.c" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1270" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-param-util.h" open="0" top="0" tabpos="44" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3770" topLine="97" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tgsw-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13281" topLine="382" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-bench.cpp" open="0" top="0" tabpos="41" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2132" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="src/test/tgsw_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="29965" topLine="812" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/internal/custom/gmock-port.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1582" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-filepath.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3794" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-typed-test.h" open="0" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9875" topLine="208" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-tlwe.cpp" open="0" top="0" tabpos="54" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11746" topLine="358" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-unaligned.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6339" topLine="191" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/fftw/fft_processor_fftw.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="891" topLine="7" />
+		</Cursor>
+	</File>
+	<File name="src/test/nn.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="31620" topLine="719" />
+		</Cursor>
+	</File>
+	<File name="src/test/lwe_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9938" topLine="236" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-function-mockers.h" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40552" topLine="825" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/nayuki/fft-portable.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4848" topLine="116" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-cardinalities.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5650" topLine="95" />
+		</Cursor>
+	</File>
+	<File name="src/include/tfhe_gate_bootstrapping_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4354" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="src/include/tfhe_generic_templates.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1889" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="src/test/bootstrapping_test.cpp" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13563" topLine="400" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="82480" topLine="2093" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/numeric-functions.cpp" open="0" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="319" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-string.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6501" topLine="108" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/toruspolynomial-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8124" topLine="224" />
+		</Cursor>
+	</File>
+	<File name="src/test/tlwe_fft_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6967" topLine="183" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-test-part.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5149" topLine="94" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwe-bootstrapping-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7946" topLine="208" />
+		</Cursor>
+	</File>
+	<File name="src/include/tfhe_gate_bootstrapping_structures.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="452" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-gate-bootstrapping.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2638" topLine="70" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-internal.h" open="0" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39457" topLine="978" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft-impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21476" topLine="594" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1582" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-c-binding.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1479" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="src/test/bootstrapping_test_fft.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11761" topLine="324" />
+		</Cursor>
+	</File>
+	<File name="src/include/tfhe.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1209" topLine="27" />
 		</Cursor>
 	</File>
 	<File name="src/test/fakes/tgsw-fft.h" open="0" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -582,114 +377,24 @@
 			<Cursor1 position="2639" topLine="60" />
 		</Cursor>
 	</File>
+	<File name="src/libtfhe/polynomials.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3076" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="src/include/tgsw.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7079" topLine="163" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-avx.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6371" topLine="183" />
+		</Cursor>
+	</File>
 	<File name="src/test/lagrangehalfc_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="8044" topLine="220" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/fftw/fft_processor_fftw.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="891" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="src/include/tfhe_gate_bootstrapping_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4354" topLine="68" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-decomp-tgsw.cpp" open="0" top="0" tabpos="50" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7685" topLine="185" />
-		</Cursor>
-	</File>
-	<File name="src/include/tlwe_functions.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2406" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tgsw-functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="13281" topLine="382" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-gate-bootstrapping.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2638" topLine="70" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="197" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/include/lweparams.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2007" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/nayuki/lagrangehalfc_impl.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="689" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-cardinalities.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5650" topLine="95" />
-		</Cursor>
-	</File>
-	<File name="src/test/test-tlwe.cpp" open="0" top="0" tabpos="54" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11746" topLine="358" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/tfhe_gate_bootstrapping_structures.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="255" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/lwe-bootstrapping-functions-fft.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7238" topLine="193" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-port.h" open="0" top="0" tabpos="39" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="85410" topLine="2371" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/internal/gmock-internal-utils.h" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="17736" topLine="396" />
-		</Cursor>
-	</File>
-	<File name="src/include/lwe-functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2315" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-matchers.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="50690" topLine="1273" />
-		</Cursor>
-	</File>
-	<File name="src/test/fakes/lwe-bootstrapping.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4196" topLine="89" />
-		</Cursor>
-	</File>
-	<File name="src/test/googletest/googletest/include/gtest/gtest-death-test.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9242" topLine="187" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/numeric-functions.cpp" open="0" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="319" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="src/libtfhe/fft_processors/nayuki/fft-x8664-avx-aux.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5868" topLine="153" />
 		</Cursor>
 	</File>
 	<File name="src/test/googletest/googlemock/test/gmock_link_test.h" open="0" top="0" tabpos="43" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -697,9 +402,304 @@
 			<Cursor1 position="18837" topLine="616" />
 		</Cursor>
 	</File>
-	<File name="src/test/googletest/googletest/xcode/Samples/FrameworkSample/widget.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/include/lwesamples.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2046" topLine="6" />
+			<Cursor1 position="3032" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/test/production.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2140" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-spec-builders.h" open="0" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="65909" topLine="1709" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-linked_ptr.h" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2334" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/samples/prime_tables.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3922" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-death-test.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9242" topLine="187" />
+		</Cursor>
+	</File>
+	<File name="src/include/tgsw_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4385" topLine="74" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/tlwe.h" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3107" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-param-test.h" open="0" top="0" tabpos="52" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8740" topLine="166" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tfhe_io.cpp" open="0" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30674" topLine="949" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/custom/gtest-printers.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1604" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/src/gtest-internal-inl.h" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="42056" topLine="1027" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-lwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1532" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-addition-boot.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3627" topLine="87" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/lwe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7896" topLine="210" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-fma.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6338" topLine="177" />
+		</Cursor>
+	</File>
+	<File name="src/test/polynomial_test.cpp" open="0" top="0" tabpos="51" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25257" topLine="552" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-tuple.h" open="0" top="0" tabpos="48" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="27205" topLine="919" />
+		</Cursor>
+	</File>
+	<File name="src/include/tfhe_core.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2106" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1865" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="src/include/lweparams.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2007" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tlwe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="321" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tfhe_gate_bootstrapping_structures.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="255" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/boot-gates.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12392" topLine="319" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tlwe-fft-operations.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2990" topLine="53" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/lwe-bootstrapping-fft.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8530" topLine="218" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/fftw/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4708" topLine="87" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-long-run.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="604" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tgsw-fft-operations.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1051" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="src/include/tlwe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11193" topLine="255" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/lagrangehalfc_impl.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5509" topLine="127" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10400" topLine="214" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-type-util.h" open="0" top="0" tabpos="49" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="90653" topLine="1602" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-more-actions.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5640" topLine="101" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/lwe-keyswitch-functions.cpp" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2106" topLine="44" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-fft.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="197" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/samples/sample4.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1966" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/nayuki/lagrangehalfc_impl.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="689" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="src/test/test-bootstrapping-fft.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2490" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/internal/custom/gmock-matchers.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1671" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/autogenerated.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1845" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/lagrangehalfc.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2146" topLine="58" />
+		</Cursor>
+	</File>
+	<File name="src/include/numeric_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1234" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-matchers.h" open="0" top="0" tabpos="42" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="156841" topLine="4284" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-actions.h" open="0" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40134" topLine="1133" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tfhe_generic_streams.cpp" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1242" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/internal/gmock-internal-utils.h" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17736" topLine="396" />
+		</Cursor>
+	</File>
+	<File name="src/include/lwebootstrappingkey.h" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="628" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/test/fakes/lwe-bootstrapping.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4196" topLine="89" />
+		</Cursor>
+	</File>
+	<File name="src/test/nn_master.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21822" topLine="532" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3557" topLine="47" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/fft_processors/spqlios/spqlios-ifft-unaligned.s" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7267" topLine="196" />
+		</Cursor>
+	</File>
+	<File name="src/test/tgsw_fft_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10731" topLine="280" />
+		</Cursor>
+	</File>
+	<File name="src/test/nn_read_differentOrder.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="27128" topLine="622" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/internal/gtest-port.h" open="0" top="0" tabpos="39" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="85410" topLine="2371" />
+		</Cursor>
+	</File>
+	<File name="src/libtfhe/tlwe-functions.cpp" open="0" top="0" tabpos="55" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="438" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="src/test/lwekeyswitch_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5611" topLine="124" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googlemock/include/gmock/gmock-generated-actions.h" open="0" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39393" topLine="900" />
+		</Cursor>
+	</File>
+	<File name="src/test/googletest/googletest/include/gtest/gtest-message.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2918" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="src/test/io_test.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3241" topLine="66" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

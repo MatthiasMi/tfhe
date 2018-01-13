@@ -55,7 +55,7 @@ EXPORT void delete_gate_bootstrapping_parameters(TFheGateBootstrappingParameterS
 
 /** generate a gate bootstrapping secret key */
 EXPORT TFheGateBootstrappingSecretKeySet *
-new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params, unsigned int32_t window_size) {
+new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params, const uint32_t window_size) {
     LweKey *lwe_key = new_LweKey(params->in_out_params);
     lweKeyGen(lwe_key);
     TGswKey *tgsw_key = new_TGswKey(params->tgsw_params);
@@ -68,24 +68,24 @@ new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameter
 }
 
 /** deletes a gate bootstrapping secret key */
-EXPORT void delete_gate_bootstrapping_secret_keyset(TFheGateBootstrappingSecretKeySet *keyset) {
+EXPORT void delete_gate_bootstrapping_secret_keyset(TFheGateBootstrappingSecretKeySet *keyset, const uint32_t window_size) {
     LweKey *lwe_key = (LweKey *) keyset->lwe_key;
     TGswKey *tgsw_key = (TGswKey *) keyset->tgsw_key;
     LweBootstrappingKey *bk = (LweBootstrappingKey *) keyset->cloud.bk;
     LweBootstrappingKeyFFT *bkFFT = (LweBootstrappingKeyFFT *) keyset->cloud.bkFFT;
-    if (bkFFT) delete_LweBootstrappingKeyFFT(bkFFT);
-    if (bk) delete_LweBootstrappingKey(bk);
+    if (bkFFT) delete_LweBootstrappingKeyFFT(bkFFT, window_size);
+    if (bk) delete_LweBootstrappingKey(bk, window_size);
     delete_TGswKey(tgsw_key);
     delete_LweKey(lwe_key);
     delete keyset;
 }
 
 /** deletes a gate bootstrapping cloud key */
-EXPORT void delete_gate_bootstrapping_cloud_keyset(TFheGateBootstrappingCloudKeySet *keyset) {
+EXPORT void delete_gate_bootstrapping_cloud_keyset(TFheGateBootstrappingCloudKeySet *keyset, const uint32_t window_size) {
     LweBootstrappingKey *bk = (LweBootstrappingKey *) keyset->bk;
     LweBootstrappingKeyFFT *bkFFT = (LweBootstrappingKeyFFT *) keyset->bkFFT;
-    if (bkFFT) delete_LweBootstrappingKeyFFT(bkFFT);
-    if (bk) delete_LweBootstrappingKey(bk);
+    if (bkFFT) delete_LweBootstrappingKeyFFT(bkFFT, window_size);
+    if (bk) delete_LweBootstrappingKey(bk, window_size);
     delete keyset;
 }
 

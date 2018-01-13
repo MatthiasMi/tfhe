@@ -42,11 +42,12 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     cout << "DEBUG MODE!" << endl;
 #endif
-    const int nb_samples = 50;
+    const uint32_t window_size = 1;
+    const int32_t nb_samples = 50;
     const Torus32 mu_boot = modSwitchToTorus32(1, 8);
 
-    // generate params 
-    int minimum_lambda = 100;
+    // generate params
+    int32_t minimum_lambda = 100;
     TFheGateBootstrappingParameterSet *params = new_default_gate_bootstrapping_parameters(minimum_lambda);
     const LweParams *in_out_params = params->in_out_params;
     // generate the secret keyset
@@ -78,7 +79,7 @@ int main(int argc, char **argv) {
 
     delete_LweSample_array(nb_samples, test_out);
     delete_LweSample_array(nb_samples, test_in);
-    delete_gate_bootstrapping_secret_keyset(keyset);
+    delete_gate_bootstrapping_secret_keyset(keyset, window_size);
     delete_gate_bootstrapping_parameters(params);
 
     return 0;

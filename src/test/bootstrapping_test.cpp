@@ -89,10 +89,10 @@ namespace {
      * @param bara An array of n coefficients between 0 and 2N-1
      * @param bk_params The parameters of bk
      */
-    //EXPORT void tfhe_BlindRotate(TLweSample* accum, 
-    //	    const TGswSample* bk, 
-    //	    const int* bara,
-    //	    const int n,
+    //EXPORT void tfhe_BlindRotate(TLweSample* accum,
+    //	    const TGswSample* bk,
+    //	    const int32_t* bara,
+    //	    const int32_t n,
     //	    const TGswParams* bk_params) {
     TEST_F(TfheBlindRotateTest, tfheBlindRotateTest) {
 
@@ -247,14 +247,15 @@ namespace {
      * @param mu The output message (if phase(x)>0)
      * @param x The input sample
      */
-    //EXPORT void tfhe_bootstrap(LweSample* result, 
-    //  const LweBootstrappingKey* bk, 
+    //EXPORT void tfhe_bootstrap(LweSample* result,
+    //  const LweBootstrappingKey* bk,
     //  Torus32 mu, const LweSample* x)
     TEST_F(TfheBootstrapWoKSTest, tfheBootstrapWoKSTest) {
         const Torus32 TEST_MU = 123456789;
-        const int NB_TRIALS = 30;
-        const int Nx2 = 2 * N;
-        const int n = in_params->n;
+        const uint32_t window_size = 1;
+        const int32_t NB_TRIALS = 30;
+        const int32_t Nx2 = 2 * N;
+        const int32_t n = in_params->n;
         //create a fake bootstrapping key
         LweKey *key = new_LweKey(in_params);
         lweKeyGen(key);
@@ -282,7 +283,7 @@ namespace {
             phase = (Nx2 + (phase % Nx2)) % Nx2; //positive modulo
 
             //call the function
-            tfhe_bootstrap_woKS(result, bk, TEST_MU, insample);
+            tfhe_bootstrap_woKS(result, bk, TEST_MU, insample, window_size);
 
             //printf("trial=%d,hash=%d,phase=%d,result=%d\n",trial,hash,phase,result->b);
             //verify the result
@@ -333,8 +334,8 @@ namespace {
      * @param mu The output message (if phase(x)>0)
      * @param x The input sample
      */
-    //EXPORT void tfhe_bootstrap(LweSample* result, 
-    //	const LweBootstrappingKey* bk, 
+    //EXPORT void tfhe_bootstrap(LweSample* result,
+    //	const LweBootstrappingKey* bk,
     //	Torus32 mu, const LweSample* x)
     TEST_F(TfheBootstrapTest, tfheBootstrapTest) {
         const Torus32 TEST_MU = 123456789;
@@ -357,7 +358,7 @@ namespace {
             lweSymEncrypt(insample, uniformTorus32_distrib(generator), 0.001, key);
 
             //call the function
-            tfhe_bootstrap(result, bk, TEST_MU, insample);
+            tfhe_bootstrap(result, bk, TEST_MU, insample, window_size);
 
             //verify the result
             ASSERT_EQ(fres->message, fin->message >= 0 ? TEST_MU : -TEST_MU);
@@ -397,9 +398,9 @@ namespace {
     };
 
     //EXPORT void tfhe_createLweBootstrappingKey(
-    //	LweBootstrappingKey* bk, 
-    //	const LweKey* key_in, 
-    //	const TGswKey* rgsw_key) 
+    //	LweBootstrappingKey* bk,
+    //	const LweKey* key_in,
+    //	const TGswKey* rgsw_key)
     TEST_F(TfheCreateBootstrapKeyTest, createBootstrappingKeyTest) {
         LweKey *key = new_LweKey(in_params);
         lweKeyGen(key);

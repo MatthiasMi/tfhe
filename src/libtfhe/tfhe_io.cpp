@@ -948,7 +948,7 @@ void write_lweBootstrappingKey(const Ostream &F, const LweBootstrappingKey *bk, 
  * The result must be deleted with delete_TGswParams();
  */
 LweBootstrappingKey *
-read_new_lweBootstrappingKey(const Istream &F, const LweParams *in_out_params = 0, const TGswParams *bk_params = 0, unsigned int32_t window_size = 1) {
+read_new_lweBootstrappingKey(const Istream &F, const LweParams *in_out_params = 0, const TGswParams *bk_params = 0, const uint32_t window_size = 1) {
     if (in_out_params == 0) {
         LweParams *tmp = read_new_lweParams(F);
         in_out_params = tmp;

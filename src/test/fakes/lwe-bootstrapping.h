@@ -205,7 +205,7 @@ namespace {
 
 //TODO: parallelization
 #define USE_FAKE_tfhe_bootstrap_woKS \
-    static inline void tfhe_bootstrap_woKS(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x) {\
+    static inline void tfhe_bootstrap_woKS(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x, const uint32_t window_size) {\
     fake_tfhe_bootstrap_woKS(result, bk, mu, x); \
     }
 

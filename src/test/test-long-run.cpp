@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
         tfhe_random_generator_setSeed(&seed, 1);
     }
 
-//    unsigned int32_t window_size = 1;
+//    const uint32_t window_size = 1;
 //TODO: parallelization
     static const int NAND_GATE = 0;
     static const int OR_GATE = 1;
@@ -40,13 +40,10 @@ int main(int argc, char **argv) {
     static const int ORYN_GATE = 9;
     // static const int MUX_GATE = 10;
     //TODO: parallelization
-<<<<<<< HEAD
-    static const int nb_test_gates = 10000000; // number of gates to be tested 
-    static const int nb_samples = 50; // number of samples to be tested 
-=======
+
+    const uint32_t window_size = 1;
     static const int32_t nb_test_gates = 10000000; // number of gates to be tested
     static const int32_t nb_samples = 50; // number of samples to be tested
->>>>>>> 2033c6b... i++
     static const Torus32 MU = modSwitchToTorus32(1, 8);
 
     // Parameters
@@ -68,19 +65,11 @@ int main(int argc, char **argv) {
         int gate = rand() % 11; // randomly chose a gate between the 10 binary gates and the MUX
 
         // randomply chose 2/3 inputs and the output between the samples
-<<<<<<< HEAD
-        int in1 = rand() % nb_samples;
-        int in2 = rand() % nb_samples;
-        int in3 = rand() % nb_samples;
-        int out = rand() % nb_samples;
-        // randomly apply a not to the inputs 
-=======
         int32_t in1 = rand() % nb_samples;
         int32_t in2 = rand() % nb_samples;
         int32_t in3 = rand() % nb_samples;
         int32_t out = rand() % nb_samples;
         // randomly apply a not to the inputs
->>>>>>> 2033c6b... i++
         if (rand() % 2 == 1) { bootsNOT(test + in1, test + in1, key_cloud); }
         if (rand() % 2 == 1) { bootsNOT(test + in2, test + in2, key_cloud); }
         if (rand() % 2 == 1) { bootsNOT(test + in3, test + in3, key_cloud); }
@@ -200,7 +189,7 @@ int main(int argc, char **argv) {
 
 
     delete_LweSample_array(nb_samples, test);
-    delete_gate_bootstrapping_secret_keyset(keyset);
+    delete_gate_bootstrapping_secret_keyset(keyset, window_size);
     delete_gate_bootstrapping_parameters(params);
 
 

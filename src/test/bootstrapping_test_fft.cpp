@@ -90,8 +90,8 @@ namespace {
      * @param bara An array of n coefficients between 0 and 2N-1
      * @param bk_params The parameters of bk
      */
-    //EXPORT void tfhe_BlindRotate(TLweSample* accum, 
-    //      const TGswSample* bk, 
+    //EXPORT void tfhe_BlindRotate(TLweSample* accum,
+    //      const TGswSample* bk,
     //      const int* bara,
     //      const int n,
     //      const TGswParams* bk_params) {
@@ -258,16 +258,16 @@ namespace {
      * @param mu The output message (if phase(x)>0)
      * @param x The input sample
      */
-    //EXPORT void tfhe_bootstrap(LweSample* result, 
-    //  const LweBootstrappingKey* bk, 
+    //EXPORT void tfhe_bootstrap(LweSample* result,
+    //  const LweBootstrappingKey* bk,
     //  Torus32 mu, const LweSample* x)
 
     TEST_F(TfheBootstrapWoKSFFTTest, tfheBootstrapWoKSFFTTest) {
         const Torus32 TEST_MU = 123456789;
-        const int NB_TRIALS = 30;
-        const int Nx2 = 2 * N;
-        const int n = in_params->n;
-
+        const uint32_t window_size = 1;
+        const int32_t NB_TRIALS = 30;
+        const int32_t Nx2 = 2 * N;
+        const int32_t n = in_params->n;
         //create a fake bootstrapping key
         LweKey *key = new_LweKey(in_params);
         lweKeyGen(key);
@@ -357,19 +357,14 @@ namespace {
      * @param mu The output message (if phase(x)>0)
      * @param x The input sample
      */
-    //EXPORT void tfhe_bootstrap(LweSample* result, 
-    //  const LweBootstrappingKey* bk, 
+    //EXPORT void tfhe_bootstrap(LweSample* result,
+    //  const LweBootstrappingKey* bk,
     //  Torus32 mu, const LweSample* x)
 
     TEST_F(TfheBootstrapFFTTest, tfheBootstrapFFTTest) {
         const Torus32 TEST_MU = 123456789;
-<<<<<<< HEAD
-        const int NB_TRIALS = 30;
-=======
         const int32_t NB_TRIALS = 30;
-//        unsigned int32_t window_size = 1;
->>>>>>> 2033c6b... i++
-
+        unsigned int32_t window_size = 1;
         //fake keys
         LweKey *key = 0x0;
         FakeLweKeySwitchKey *ks = new FakeLweKeySwitchKey(1024, 15, 1);
@@ -460,8 +455,8 @@ namespace {
      * @param mu The output message (if phase(x)>0)
      * @param x The input sample
      */
-    //EXPORT void tfhe_bootstrap(LweSample* result, 
-    //  const LweBootstrappingKey* bk, 
+    //EXPORT void tfhe_bootstrap(LweSample* result,
+    //  const LweBootstrappingKey* bk,
     //  Torus32 mu, const LweSample* x)
 
     TEST_F(TfheInitLweBootstrappingKeyFFTTest, tfheInitLweBootstrappingKeyFFTTest) {
@@ -482,7 +477,7 @@ namespace {
         const int base = bk->ks->base;
         const int N = bk_params->tlwe_params->extracted_lweparams.n;
 
-        // KeySwitching 
+        // KeySwitching
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < t; j++) {
                 for (int p = 0; p < base; p++) {
@@ -493,7 +488,7 @@ namespace {
             }
         }
 
-        // Bootstrapping Key FFT 
+        // Bootstrapping Key FFT
         for (int i = 0; i < n; ++i) {
             ASSERT_EQ(intPolynomialNormInftyDist(fake(&bkFFT->bkFFT[i])->message, fake(&bk->bk[i])->message), 0);
             ASSERT_EQ(fake(&bkFFT->bkFFT[i])->current_variance, fake(&bk->bk[i])->current_variance);
