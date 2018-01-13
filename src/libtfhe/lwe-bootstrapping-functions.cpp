@@ -56,8 +56,7 @@ void tfhe_MuxRotate(TLweSample *result, const TLweSample *accum, const TGswSampl
  * @param bk_params The parameters of bk
  */
 EXPORT void
-tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int *bara, const int n, const TGswParams *bk_params) {
-
+tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const uint32_t window_size) {
     //TGswSample* temp = new_TGswSample(bk_params);
     TLweSample *temp = new_TLweSample(bk_params->tlwe_params);
     TLweSample *temp2 = temp;
@@ -95,11 +94,10 @@ tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int *bara, const
 EXPORT void tfhe_blindRotateAndExtract(LweSample *result,
                                        const TorusPolynomial *v,
                                        const TGswSample *bk,
-                                       const int barb,
-                                       const int *bara,
-                                       const int n,
-                                       const TGswParams *bk_params) {
-
+                                       const int32_t barb,
+                                       const int32_t *bara,
+                                       const int32_t n,
+                                       const TGswParams *bk_params, const uint32_t window_size) {
     const TLweParams *accum_params = bk_params->tlwe_params;
     const LweParams *extract_params = &accum_params->extracted_lweparams;
     const int N = accum_params->N;
@@ -111,7 +109,7 @@ EXPORT void tfhe_blindRotateAndExtract(LweSample *result,
     if (barb != 0) torusPolynomialMulByXai(testvectbis, _2N - barb, v);
     else torusPolynomialCopy(testvectbis, v);
     tLweNoiselessTrivial(acc, testvectbis, accum_params);
-    tfhe_blindRotate(acc, bk, bara, n, bk_params);
+    tfhe_blindRotate(acc, bk, bara, n, bk_params, window_size);
     tLweExtractLweSample(result, acc, extract_params, accum_params);
 
     delete_TLweSample(acc);
@@ -152,7 +150,7 @@ EXPORT void tfhe_bootstrap_woKS(LweSample *result,
     //the initial testvec = [mu,mu,mu,...,mu]
     for (int i = 0; i < N; i++) testvect->coefsT[i] = mu;
 
-    tfhe_blindRotateAndExtract(result, testvect, bk->bk, barb, bara, n, bk_params);
+    tfhe_blindRotateAndExtract(result, testvect, bk->bk, barb, bara, n, bk_params, window_size);
 
     delete[] bara;
     delete_TorusPolynomial(testvect);

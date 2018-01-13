@@ -17,7 +17,7 @@
 
 
 /* ********************************************************
- * LWE 
+ * LWE
 ******************************************************** */
 
 /* ****************************
@@ -113,7 +113,7 @@ EXPORT LweKey *new_lweKey_fromStream(std::istream &in);
 
 
 /* ********************************************************
- * TLWE 
+ * TLWE
 ******************************************************** */
 
 /* ****************************
@@ -212,7 +212,7 @@ EXPORT TLweKey *new_tlweKey_fromStream(std::istream &F);
 
 
 /* ********************************************************
- * TGSW 
+ * TGSW
 ******************************************************** */
 
 /* ****************************
@@ -382,7 +382,7 @@ EXPORT void export_tfheGateBootstrappingParameterSet_toFile(FILE *F, const TFheG
  * This constructor function reads and creates a tfhe gate bootstrapping parameter set from a File. The result
  * must be deleted with delete_tfheGateBootstrappingParameterSet();
  */
-EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F);
+EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F, const uint32_t window_size);
 
 #ifdef __cplusplus
 

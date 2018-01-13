@@ -103,6 +103,7 @@ namespace {
         FakeTGswFFT *fbkFFT = fake(bkFFT);
         for (int i = 0; i < n; i++) fbkFFT[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
+        const uint32_t window_size = 1;
         //create bara
         int *bara = new int[n];
         for (int i = 0; i < n; i++) bara[i] = rand() % (2 * N);
@@ -120,8 +121,9 @@ namespace {
         faccum->current_variance = initAlphaAccum * initAlphaAccum;
 
         //call bootstraprotate: one iteration at a time
-        for (int i = 0; i < n; i++) {
-            tfhe_blindRotate_FFT(accum, bkFFT + i, bara + i, 1, bk_params);
+
+        for (int32_t i = 0; i < n; i++) {
+            tfhe_blindRotate_FFT(accum, bkFFT + i, bara + i, 1, bk_params, window_size);
             if (key[i] == 1 && bara[i] != 0) {
                 expectedOffset = (expectedOffset + bara[i]) % (2 * N);
                 torusPolynomialMulByXai(expectedAccumMessage, expectedOffset, initAccumMessage);
@@ -132,9 +134,8 @@ namespace {
         //Now, bootstraprotate: all iterations at once (same offset)
         torusPolynomialCopy(faccum->message, initAccumMessage);
         faccum->current_variance = initAlphaAccum * initAlphaAccum;
-        tfhe_blindRotate_FFT(accum, bkFFT, bara, n, bk_params);
-        for (int j = 0; j < N; j++) ASSERT_EQ(expectedAccumMessage->coefsT[j], accum->b->coefsT[j]);
-
+        tfhe_blindRotate_FFT(accum, bkFFT, bara, n, bk_params, window_size);
+        for (int32_t j = 0; j < N; j++) ASSERT_EQ(expectedAccumMessage->coefsT[j], accum->b->coefsT[j]);
         //cleanup everything
         fake_delete_TLweSample(accum);
         delete_TorusPolynomial(expectedAccumMessage);
@@ -190,6 +191,7 @@ namespace {
         FakeTGswFFT *fbkFFT = fake(bkFFT);
         for (int i = 0; i < n; i++) fbkFFT[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
+        const uint32_t window_size = 1;
         //create bara and b
         int *bara = new int[n];
         //create v
@@ -205,7 +207,7 @@ namespace {
             //const double initAlphaAccum=0.2;
 
             //run the function
-            tfhe_blindRotateAndExtract_FFT(result, v, bkFFT, barb, bara, n, bk_params);
+            tfhe_blindRotateAndExtract_FFT(result, v, bkFFT, barb, bara, n, bk_params, window_size);
 
             //verify
             int offset = barb;

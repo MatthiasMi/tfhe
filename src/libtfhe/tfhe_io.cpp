@@ -1055,8 +1055,8 @@ EXPORT void export_tfheGateBootstrappingParameterSet_toFile(FILE *F, const TFheG
  * This constructor function reads and creates a tfhe gate bootstrapping parameter set from a File. The result
  * must be deleted with delete_tfheGateBootstrappingParameterSet();
  */
-EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F) {
-    return read_new_tfheGateBootstrappingParameters(to_Istream(F));
+EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingParameters(to_Istream(F), window_size);
 }
 
 #ifdef __cplusplus
@@ -1073,8 +1073,8 @@ EXPORT void export_tfheGateBootstrappingParameterSet_toStream(std::ostream &F,
  * This constructor function reads and creates a tfhe gate bootstrapping parameter set from a File. The result
  * must be deleted with delete_tfheGateBootstrappingParameterSet();
  */
-EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromStream(std::istream &F) {
-    return read_new_tfheGateBootstrappingParameters(to_Istream(F));
+EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromStream(std::istream &F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingParameters(to_Istream(F), window_size);
 }
 
 #endif
@@ -1085,14 +1085,14 @@ EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_
 
 
 TFheGateBootstrappingCloudKeySet *
-read_new_tfheGateBootstrappingCloudKeySet(const Istream &F, const TFheGateBootstrappingParameterSet *params = 0) {
+read_new_tfheGateBootstrappingCloudKeySet(const Istream &F, const TFheGateBootstrappingParameterSet *params = 0, const uint32_t window_size) {
     if (params == 0) {
         TFheGateBootstrappingParameterSet *tmp = read_new_tfheGateBootstrappingParameters(F);
         TfheGarbageCollector::register_param(tmp);
         params = tmp;
     }
     LweBootstrappingKey *bk = read_new_lweBootstrappingKey(F, params->in_out_params, params->tgsw_params);
-    LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk);
+    LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk, window_size);
     return new TFheGateBootstrappingCloudKeySet(params, bk, bkFFT);
 }
 
@@ -1114,8 +1114,8 @@ EXPORT void export_tfheGateBootstrappingCloudKeySet_toFile(FILE *F, const TFheGa
  * This constructor function reads and creates a tfhe gate bootstrapping cloud key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingCloudKeySet();
  */
-EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromFile(FILE *F) {
-    return read_new_tfheGateBootstrappingCloudKeySet(to_Istream(F));
+EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromFile(FILE *F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingCloudKeySet(to_Istream(F), window_size);
 }
 
 #ifdef __cplusplus
@@ -1132,8 +1132,8 @@ EXPORT void export_tfheGateBootstrappingCloudKeySet_toStream(std::ostream &F,
  * This constructor function reads and creates a tfhe gate bootstrapping cloud key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingCloudKeySet();
  */
-EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromStream(std::istream &F) {
-    return read_new_tfheGateBootstrappingCloudKeySet(to_Istream(F));
+EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromStream(std::istream &F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingCloudKeySet(to_Istream(F), window_size);
 }
 
 #endif
@@ -1144,7 +1144,7 @@ EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fr
 
 
 TFheGateBootstrappingSecretKeySet *
-read_new_tfheGateBootstrappingSecretKeySet(const Istream &F, const TFheGateBootstrappingParameterSet *params = 0) {
+read_new_tfheGateBootstrappingSecretKeySet(const Istream &F, const TFheGateBootstrappingParameterSet *params = 0, const uint32_t window_size = 1) {
     if (params == 0) {
         TFheGateBootstrappingParameterSet *tmp = read_new_tfheGateBootstrappingParameters(F);
         TfheGarbageCollector::register_param(tmp);
@@ -1153,7 +1153,7 @@ read_new_tfheGateBootstrappingSecretKeySet(const Istream &F, const TFheGateBoots
     LweBootstrappingKey *bk = read_new_lweBootstrappingKey(F, params->in_out_params, params->tgsw_params);
     LweKey *lwe_key = read_new_lweKey(F, params->in_out_params);
     TGswKey *tgsw_key = read_new_tGswKey(F, params->tgsw_params);
-    LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk);
+    LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk, window_size);
     return new TFheGateBootstrappingSecretKeySet(params, bk, bkFFT, lwe_key, tgsw_key);
 }
 
@@ -1178,8 +1178,8 @@ EXPORT void export_tfheGateBootstrappingSecretKeySet_toFile(FILE *F, const TFheG
  * This constructor function reads and creates a tfhe gate bootstrapping secret key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingSecretKeySet();
  */
-EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromFile(FILE *F) {
-    return read_new_tfheGateBootstrappingSecretKeySet(to_Istream(F));
+EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromFile(FILE *F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingSecretKeySet(to_Istream(F), window_size);
 }
 
 #ifdef __cplusplus
@@ -1196,8 +1196,8 @@ EXPORT void export_tfheGateBootstrappingSecretKeySet_toStream(std::ostream &F,
  * This constructor function reads and creates a TGSWKey from a stream. The result
  * must be deleted with delete_tfheGateBootstrappingSecretKeySet();
  */
-EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromStream(std::istream &F) {
-    return read_new_tfheGateBootstrappingSecretKeySet(to_Istream(F));
+EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromStream(std::istream &F, const uint32_t window_size) {
+    return read_new_tfheGateBootstrappingSecretKeySet(to_Istream(F), window_size);
 }
 
 #endif

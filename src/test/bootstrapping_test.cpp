@@ -101,6 +101,7 @@ namespace {
         FakeTGsw *fbk = fake(bk);
         for (int i = 0; i < n; i++) fbk[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
+        const uint32_t window_size = 1;
         //create bara
         int *bara = new int[n];
         for (int i = 0; i < n; i++) bara[i] = rand() % (2 * N);
@@ -118,8 +119,13 @@ namespace {
         faccum->current_variance = initAlphaAccum * initAlphaAccum;
 
         //call bootstraprotate: one iteration at a time
+<<<<<<< HEAD
         for (int i = 0; i < n; i++) {
             tfhe_blindRotate(accum, bk + i, bara + i, 1, bk_params);
+=======
+        for (int32_t i = 0; i < n; i++) {
+            tfhe_blindRotate(accum, bk + i, bara + i, 1, bk_params, window_size);
+>>>>>>> 0f4ea87... ++
             if (key[i] == 1 && bara[i] != 0) {
                 expectedOffset = (expectedOffset + bara[i]) % (2 * N);
                 torusPolynomialMulByXai(expectedAccumMessage, expectedOffset, initAccumMessage);
@@ -186,6 +192,7 @@ namespace {
         FakeTGsw *fbk = fake(bk);
         for (int i = 0; i < n; i++) fbk[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
+        const uint32_t window_size = 1;
         //create bara and b
         int *bara = new int[n];
         //create v
@@ -201,7 +208,7 @@ namespace {
             //const double initAlphaAccum=0.2;
 
             //run the function
-            tfhe_blindRotateAndExtract(result, v, bk, barb, bara, n, bk_params);
+            tfhe_blindRotateAndExtract(result, v, bk, barb, bara, n, bk_params, window_size);
 
             //verify
             int offset = barb;
