@@ -14,7 +14,7 @@ EXPORT void die_dramatically(const char *message) {
     throw Exception42();
 }
 
-/** 
+/**
  * multiplies by sqrt(2/pi)  to convert a "litterature" gaussian
  * parameter into a standard deviation
  * TODO: get rid of this function and express everything as a function of the standard deviation
@@ -55,13 +55,13 @@ EXPORT void delete_gate_bootstrapping_parameters(TFheGateBootstrappingParameterS
 
 /** generate a gate bootstrapping secret key */
 EXPORT TFheGateBootstrappingSecretKeySet *
-new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params) {
+new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params, unsigned int32_t window_size) {
     LweKey *lwe_key = new_LweKey(params->in_out_params);
     lweKeyGen(lwe_key);
     TGswKey *tgsw_key = new_TGswKey(params->tgsw_params);
     tGswKeyGen(tgsw_key);
     LweBootstrappingKey *bk = new_LweBootstrappingKey(params->ks_t, params->ks_basebit, params->in_out_params,
-                                                      params->tgsw_params);
+                                                      params->tgsw_params, window_size);
     tfhe_createLweBootstrappingKey(bk, lwe_key, tgsw_key);
     LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk);
     return new TFheGateBootstrappingSecretKeySet(params, bk, bkFFT, lwe_key, tgsw_key);

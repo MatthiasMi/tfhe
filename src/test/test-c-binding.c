@@ -6,7 +6,7 @@
 #include <time.h>
 
 // **********************************************************************************
-//            This is just an example file to verify that the library is 
+//            This is just an example file to verify that the library is
 //            usable from a C code
 // **********************************************************************************
 
@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
     TGswKey *key_bk = new_TGswKey(params_bk);
     tGswKeyGen(key_bk);
 
-    LweBootstrappingKey *bk = new_LweBootstrappingKey(ks_t, ks_basebit, params_in, params_bk);
+    LweBootstrappingKey *bk = new_LweBootstrappingKey(ks_t, ks_basebit, params_in, params_bk, window_size);
     tfhe_createLweBootstrappingKey(bk, key, key_bk);
 
     LweSample *test = new_LweSample(params_in);

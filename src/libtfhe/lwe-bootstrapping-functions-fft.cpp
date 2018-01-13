@@ -191,7 +191,7 @@ EXPORT void tfhe_bootstrap_woKS_FFT(LweSample *result,
         modSwitchFromTorus32(x->a[i], Nx2);
 
     // E.g for window_size = 2:
-    for (int32_t i = 0; i < n/2; i++) { //TODO , unsigned int32_t window_size
+    for (int32_t i = 0; i < n/2; i++) { //TODO , unsigned int32_t window_size = 1
         bara[3*i] = modSwitchFromTorus32(x->a[2*i]+x->a[2*i+1], Nx2);
         bara[3*i+1] = modSwitchFromTorus32(x->a[2*i], Nx2);
         bara[3*i+2] = modSwitchFromTorus32(x->a[2*i+1], Nx2);

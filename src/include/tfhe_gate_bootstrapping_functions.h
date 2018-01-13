@@ -49,41 +49,41 @@ EXPORT void bootsCONSTANT(LweSample *result, int value, const TFheGateBootstrapp
 
 /** bootstrapped Nand Gate */
 EXPORT void
-bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Or Gate:  */
 EXPORT void
-bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped And Gate: result = a and b */
 EXPORT void
-bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Xor Gate: result = a xor b */
 EXPORT void
-bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Xnor Gate: result = (a==b) */
 EXPORT void
-bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Not Gate: result = not(a) */
-EXPORT void bootsNOT(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk);
+EXPORT void bootsNOT(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Copy Gate: result = a */
-EXPORT void bootsCOPY(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk);
+EXPORT void bootsCOPY(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped Nor Gate: result = not(a or b) */
 EXPORT void
-bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped AndNY Gate: not(a) and b */
 EXPORT void
-bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped AndYN Gate: a and not(b) */
 EXPORT void
-bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped OrNY Gate: not(a) or b */
 EXPORT void
-bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 /** bootstrapped OrYN Gate: a or not(b) */
 EXPORT void
-bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk);
+bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 
 /** bootstrapped Mux(a,b,c) = a?b:c */
 EXPORT void bootsMUX(LweSample *result, const LweSample *a, const LweSample *b, const LweSample *c,
-                     const TFheGateBootstrappingCloudKeySet *bk);
+                     const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size);
 
 #endif// TFHE_GATE_BOOTSTRAPPING_FUNCTIONS_H

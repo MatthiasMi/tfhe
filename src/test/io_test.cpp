@@ -37,9 +37,9 @@ namespace {
 	const int N = params->N;
 	const int k = params->k;
 	TLweKey* key = new_TLweKey(params);
-	for (int i=0; i<k; i++) 
-	    for (int j=0; j<N; j++)
-		key->key[i].coefs[j]=rand()%2;
+	for (int32_t i=0; i<k; i++)
+	    for (int32_t j=0; j<N; j++)
+            key->key[i].coefs[j]=rand()%2;
 	return key;
     }
 
@@ -48,13 +48,13 @@ namespace {
 	const int N = params->tlwe_params->N;
 	const int k = params->tlwe_params->k;
 	TGswKey* key = new_TGswKey(params);
-	for (int i=0; i<k; i++) 
-	    for (int j=0; j<N; j++)
-		key->key[i].coefs[j]=rand()%2;
+	for (int32_t i=0; i<k; i++)
+	    for (int32_t j=0; j<N; j++)
+            key->key[i].coefs[j]=rand()%2;
 	return key;
     }
 
-    
+
     //generate a random ks
     void random_ks_key(LweKeySwitchKey* key) {
         const int N = key->n;
@@ -79,14 +79,15 @@ namespace {
 	return key;
     }
 
-    
+
     //generate a random ks
-    LweBootstrappingKey* new_random_bk_key(int ks_t, int ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params) {
-	const int n = in_out_params->n;
-        const int kpl = bk_params->kpl;
-        const int k = bk_params->tlwe_params->k;
-        const int N = bk_params->tlwe_params->N;
-        LweBootstrappingKey* bk = new_LweBootstrappingKey(ks_t, ks_basebit, in_out_params, bk_params);
+    LweBootstrappingKey* new_random_bk_key(int32_t ks_t, int32_t ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params, unsigned int32_t window_size) {
+	const int32_t n = in_out_params->n;
+        const int32_t kpl = bk_params->kpl;
+        const int32_t k = bk_params->tlwe_params->k;
+        const int32_t N = bk_params->tlwe_params->N;
+        LweBootstrappingKey* bk = new_LweBootstrappingKey(ks_t, ks_basebit, in_out_params, bk_params, window_size);
+
         random_ks_key(bk->ks);
         double variance = rand()/double(RAND_MAX);
         for (int i=0; i<n; i++) {
@@ -112,7 +113,7 @@ namespace {
     const TGswKey* tgswkey1024_1 = new_random_tgsw_key(tgswparams1024_1);
     const TGswKey* tgswkey128_2 = new_random_tgsw_key(tgswparams128_2);
     const set<const TGswKey*> allkey_tgsw = { tgswkey1024_1, tgswkey128_2 };
-    
+
     const LweKeySwitchKey* ks128 = new_random_ks_key(256,6,2,lweparams120);
     const set<const LweKeySwitchKey*> allks = { ks128 };
 
@@ -127,42 +128,42 @@ namespace {
 
     //equality test for parameters
     void assert_equals(const LweParams* a, const LweParams* b) {
-	ASSERT_EQ(a->n, b->n);	
-	ASSERT_DOUBLE_EQ(a->alpha_min, b->alpha_min);	
+	ASSERT_EQ(a->n, b->n);
+	ASSERT_DOUBLE_EQ(a->alpha_min, b->alpha_min);
 	ASSERT_DOUBLE_EQ(a->alpha_max, b->alpha_max);
     }
 
     //equality test for parameters
     void assert_equals(const TLweParams* a, const TLweParams* b) {
-	ASSERT_EQ(a->N, b->N);  
-	ASSERT_EQ(a->k, b->k);  
-	ASSERT_DOUBLE_EQ(a->alpha_min, b->alpha_min);   
+	ASSERT_EQ(a->N, b->N);
+	ASSERT_EQ(a->k, b->k);
+	ASSERT_DOUBLE_EQ(a->alpha_min, b->alpha_min);
 	ASSERT_DOUBLE_EQ(a->alpha_max, b->alpha_max);
     }
 
     //equality test for parameters
     void assert_equals(const TGswParams* a, const TGswParams* b) {
-	ASSERT_EQ(a->l, b->l);  
-	ASSERT_EQ(a->Bgbit, b->Bgbit);  
+	ASSERT_EQ(a->l, b->l);
+	ASSERT_EQ(a->Bgbit, b->Bgbit);
 	assert_equals(a->tlwe_params, b->tlwe_params);
-    }	
+    }
 
     //equality test for keys
     void assert_equals(const LweKey* a, const LweKey* b) {
 	assert_equals(a->params,b->params);
-	const int n = a->params->n;
-	for (int i=0; i<n; i++)
-	    ASSERT_EQ(a->key[i], b->key[i]);	
+	const int32_t n = a->params->n;
+	for (int32_t i=0; i<n; i++)
+	    ASSERT_EQ(a->key[i], b->key[i]);
     }
 
     //equality test for keys
     void assert_equals(const TLweKey* a, const TLweKey* b) {
 	assert_equals(a->params,b->params);
-	const int N = a->params->N;
-	const int k = a->params->k;
-	for (int i=0; i<k; i++)
-	    for (int j=0; j<N; j++)
-		ASSERT_EQ(a->key[i].coefs[j], b->key[i].coefs[j]);	
+	const int32_t N = a->params->N;
+	const int32_t k = a->params->k;
+	for (int32_t i=0; i<k; i++)
+	    for (int32_t j=0; j<N; j++)
+		ASSERT_EQ(a->key[i].coefs[j], b->key[i].coefs[j]);
     }
 
     //equality test for keys
@@ -181,8 +182,8 @@ namespace {
 
     //generate a random sample
     void tlweSampleUniform(TLweSample* a, const TLweParams* params) {
-	const int k = params->k;
-	for (int i=0; i<=k; i++) 
+	const int32_t k = params->k;
+	for (int32_t i=0; i<=k; i++)
 	    torusPolynomialUniform(a->a+i);
 	a->current_variance=rand()/double(RAND_MAX);
     }
@@ -191,7 +192,7 @@ namespace {
     void tgswSampleUniform(TGswSample* a, const TGswParams* params) {
 	const int kpl = params->kpl;
 	const TLweParams* tlwe_params = params->tlwe_params;
-	for (int i=0; i<kpl; i++) 
+	for (int32_t i=0; i<kpl; i++)
 	    tlweSampleUniform(a->all_sample+i,tlwe_params);
     }
 
@@ -200,22 +201,22 @@ namespace {
 	const int n = params->n;
 	for (int i=0; i<n; i++) ASSERT_EQ(a->a[i], b->a[i]);
 	ASSERT_EQ(a->b,b->b);
-	ASSERT_DOUBLE_EQ(a->current_variance,b->current_variance);	
+	ASSERT_DOUBLE_EQ(a->current_variance,b->current_variance);
     }
 
     //equality test for samples
     void assert_equals(const TLweSample* a, const TLweSample* b, const TLweParams* params) {
-	const int k = params->k;
-	for (int i=0; i<=k; i++) 
+	const int32_t k = params->k;
+	for (int32_t i=0; i<=k; i++)
 	    ASSERT_EQ(torusPolynomialNormInftyDist(a->a+i, b->a+i),0);
-	ASSERT_DOUBLE_EQ(a->current_variance,b->current_variance);	
+	ASSERT_DOUBLE_EQ(a->current_variance,b->current_variance);
     }
 
     //equality test for samples
     void assert_equals(const TGswSample* a, const TGswSample* b, const TGswParams* params) {
 	const int kpl = params->kpl;
 	const TLweParams* tlwe_params = params->tlwe_params;
-	for (int i=0; i<kpl; i++) 
+	for (int32_t i=0; i<kpl; i++)
 	    assert_equals(a->all_sample+i,b->all_sample+i,tlwe_params);
     }
 
@@ -305,7 +306,7 @@ namespace {
 	    LweParams* blah = new_lweParams_fromStream(iss);
 	    assert_equals(params, blah);
 	    delete_LweParams(blah);
-	}	
+	}
     }
 
 
@@ -320,7 +321,7 @@ namespace {
 	    TLweParams* blah = new_tLweParams_fromStream(iss);
 	    assert_equals(params, blah);
 	    delete_TLweParams(blah);
-	}   
+	}
     }
 
 
@@ -335,7 +336,7 @@ namespace {
 	    TGswParams* blah = new_tGswParams_fromStream(iss);
 	    assert_equals(params, blah);
 	    delete_TGswParams(blah);
-	}   
+	}
     }
 
 
@@ -349,7 +350,7 @@ namespace {
 	    LweKey* blah = new_lweKey_fromStream(iss);
 	    assert_equals(key, blah);
 	    delete_LweKey(blah);
-	}	
+	}
     }
 
 
@@ -364,7 +365,7 @@ namespace {
 	    TLweKey* blah = new_tlweKey_fromStream(iss);
 	    assert_equals(key, blah);
 	    delete_TLweKey(blah);
-	}   
+	}
     }
 
 
@@ -379,7 +380,7 @@ namespace {
 	    TGswKey* blah = new_tgswKey_fromStream(iss);
 	    assert_equals(key, blah);
 	    delete_TGswKey(blah);
-	}   
+	}
     }
 
 
@@ -398,7 +399,7 @@ namespace {
 	    assert_equals(sample, blah, params);
 	    delete_LweSample(blah);
 	    delete_LweSample(sample);
-	}	
+	}
     }
 
 
@@ -417,7 +418,7 @@ namespace {
 	    assert_equals(sample, blah, params);
 	    delete_TLweSample(blah);
 	    delete_TLweSample(sample);
-	}	
+	}
     }
 
     TEST(IOTest, TGswSampleIO) {
@@ -450,7 +451,7 @@ namespace {
                 assert_equals(ks,ks1);
                 delete_LweKeySwitchKey(ks1);
             }
-        }	
+        }
     }
 
     TEST(IOTest, LweBootstrappingKeyIO) {
@@ -464,7 +465,7 @@ namespace {
                 assert_equals(bk,bk1);
                 delete_LweBootstrappingKey(bk1);
             }
-        }	
+        }
     }
 
     TEST(IOTest, TFheGateBootstrappingParameterSetIO) {
@@ -479,7 +480,7 @@ namespace {
                 assert_equals(gbp,gbp1);
                 delete_gate_bootstrapping_parameters(gbp1);
             }
-        }	
+        }
     }
 
 
@@ -504,7 +505,7 @@ namespace {
                 assert_equals(gbck,gbck1);
                 delete_gate_bootstrapping_cloud_keyset(gbck1);
             }
-        }	
+        }
     }
 
     TEST_F(IOTest2, TFheGateBootstrappingSecretKeySetIO) {
@@ -518,7 +519,7 @@ namespace {
                 assert_equals(gbsk,gbsk1);
                 delete_gate_bootstrapping_secret_keyset(gbsk1);
             }
-        }	
+        }
     }
 
 } //namespace

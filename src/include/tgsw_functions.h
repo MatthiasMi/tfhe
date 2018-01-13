@@ -82,9 +82,9 @@ EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey
 EXPORT void tfhe_blindRotate_FFT(TLweSample *accum, const TGswSampleFFT *bk, const int *bara, const int n,
                                  const TGswParams *bk_params);
 EXPORT void
-tfhe_blindRotateAndExtract_FFT(LweSample *result, const TorusPolynomial *v, const TGswSampleFFT *bk, const int barb,
-                               const int *bara, const int n, const TGswParams *bk_params);
-EXPORT void tfhe_bootstrap_FFT(LweSample *result, const LweBootstrappingKeyFFT *bk, Torus32 mu, const LweSample *x);
+tfhe_blindRotateAndExtract_FFT(LweSample *result, const TorusPolynomial *v, const TGswSampleFFT *bk, const int32_t barb,
+                               const int32_t *bara, const int32_t n, const TGswParams *bk_params);
+EXPORT void tfhe_bootstrap_FFT(LweSample *result, const LweBootstrappingKeyFFT *bk, Torus32 mu, const LweSample *x, unsigned int32_t window_size);
 // EXPORT void tfhe_bootstrapFFT(LweSample* result, const LweBootstrappingKeyFFT* bk, Torus32 mu1, Torus32 mu0, const LweSample* x);
 // EXPORT void tfhe_createLweBootstrappingKeyFFT(LweBootstrappingKeyFFT* bk, const LweKey* key_in, const TGswKey* rgsw_key);
 

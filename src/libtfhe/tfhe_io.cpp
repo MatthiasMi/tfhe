@@ -22,7 +22,7 @@ using namespace std;
 
 
 /* ********************************************************
- * LWE 
+ * LWE
 ******************************************************** */
 
 /* ****************************
@@ -172,8 +172,8 @@ void write_lweKey_content(const Ostream &F, const LweKey *key) {
 }
 
 /**
- * this reads a new lweKey (params + content). The read params are garbage-collected, 
- * the output key needs to be deleted by the user (with delete_LweKey). 
+ * this reads a new lweKey (params + content). The read params are garbage-collected,
+ * the output key needs to be deleted by the user (with delete_LweKey).
  * @param F the input stream
  * @Return the key
  */
@@ -190,7 +190,7 @@ LweKey *read_new_lweKey(const Istream &F, const LweParams *params = 0x0) {
 
 
 /**
- * this writes a lweKey (params + content) to a stream. 
+ * this writes a lweKey (params + content) to a stream.
  * @param F the output stream
  * @Return the key
  */
@@ -230,7 +230,7 @@ EXPORT LweKey *new_lweKey_fromFile(FILE *F) { return read_new_lweKey(to_Istream(
 
 
 /* ********************************************************
- * TLWE 
+ * TLWE
 ******************************************************** */
 
 /* ****************************
@@ -495,7 +495,7 @@ void write_tGswParams(const Ostream &F, const TGswParams *tgswparams) {
 }
 
 /**
- * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object. 
+ * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object.
  * The result must be deleted with delete_TGswParams();
  */
 TGswParams *read_new_tGswParams_section(const Istream &F, const TLweParams *tlwe_params) {
@@ -509,7 +509,7 @@ TGswParams *read_new_tGswParams_section(const Istream &F, const TLweParams *tlwe
 }
 
 /**
- * This wrapper constructor function reads and creates a TGswParams from a generic stream. 
+ * This wrapper constructor function reads and creates a TGswParams from a generic stream.
  * The result must be deleted with delete_TGswParams(), but the inner
  * TlweParams will be garbage-collected automatically;
  */
@@ -739,7 +739,7 @@ void write_LweKeySwitchParameters_section(const Ostream &F, const LweKeySwitchKe
 }
 
 /**
- * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object. 
+ * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object.
  * The result must be deleted with delete_TGswParams();
  */
 void read_lweKeySwitchParameters_section(const Istream &F, LweKeySwitchParameters *reps) {
@@ -944,11 +944,11 @@ void write_lweBootstrappingKey(const Ostream &F, const LweBootstrappingKey *bk, 
 }
 
 /**
- * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object. 
+ * This constructor function reads and creates a TGswParams from a generic stream, and an TlweParams object.
  * The result must be deleted with delete_TGswParams();
  */
 LweBootstrappingKey *
-read_new_lweBootstrappingKey(const Istream &F, const LweParams *in_out_params = 0, const TGswParams *bk_params = 0) {
+read_new_lweBootstrappingKey(const Istream &F, const LweParams *in_out_params = 0, const TGswParams *bk_params = 0, unsigned int32_t window_size = 1) {
     if (in_out_params == 0) {
         LweParams *tmp = read_new_lweParams(F);
         in_out_params = tmp;
@@ -963,7 +963,7 @@ read_new_lweBootstrappingKey(const Istream &F, const LweParams *in_out_params = 
     read_lweKeySwitchParameters_section(F, &ksparams);
     if (ksparams.n != bk_params->tlwe_params->N * bk_params->tlwe_params->k)
         die_dramatically("Wrong dimension in bootstrapping key");
-    LweBootstrappingKey *reps = new_LweBootstrappingKey(ksparams.t, ksparams.basebit, in_out_params, bk_params);
+    LweBootstrappingKey *reps = new_LweBootstrappingKey(ksparams.t, ksparams.basebit, in_out_params, bk_params, window_size);
     read_lweKeySwitchKey_content(F, reps->ks);
     read_LweBootstrappingKey_content(F, reps);
     return reps;

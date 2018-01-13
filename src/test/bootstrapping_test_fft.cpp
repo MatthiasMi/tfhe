@@ -363,7 +363,12 @@ namespace {
 
     TEST_F(TfheBootstrapFFTTest, tfheBootstrapFFTTest) {
         const Torus32 TEST_MU = 123456789;
+<<<<<<< HEAD
         const int NB_TRIALS = 30;
+=======
+        const int32_t NB_TRIALS = 30;
+//        unsigned int32_t window_size = 1;
+>>>>>>> 2033c6b... i++
 
         //fake keys
         LweKey *key = 0x0;
@@ -383,7 +388,7 @@ namespace {
             lweSymEncrypt(insample, uniformTorus32_distrib(generator), 0.001, key);
 
             //call the function
-            tfhe_bootstrap_FFT(result, bkFFT, TEST_MU, insample);
+            tfhe_bootstrap_FFT(result, bkFFT, TEST_MU, insample, window_size);
 
             //verify the result
             ASSERT_EQ(fres->message, fin->message >= 0 ? TEST_MU : -TEST_MU);
@@ -466,7 +471,7 @@ namespace {
         lweKeyGen(key);
         TGswKey *key_bk = new_TGswKey(bk_params);
         tGswKeyGen(key_bk);
-        LweBootstrappingKey *bk = new_LweBootstrappingKey(ks_t, ks_basebit, in_params, bk_params);
+        LweBootstrappingKey *bk = new_LweBootstrappingKey(ks_t, ks_basebit, in_params, bk_params, window_size);
         tfhe_createLweBootstrappingKey(bk, key, key_bk);
 
         // create (allocate and initialize) the BK FFT

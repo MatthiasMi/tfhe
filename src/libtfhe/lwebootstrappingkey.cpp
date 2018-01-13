@@ -10,16 +10,17 @@
 
 using namespace std;
 
-LweBootstrappingKey::LweBootstrappingKey(const LweParams* in_out_params, 
+LweBootstrappingKey::LweBootstrappingKey(const LweParams* in_out_params,
     const TGswParams* bk_params,
     const TLweParams* accum_params,
     const LweParams* extract_params,
     TGswSample* bk,
-    LweKeySwitchKey* ks): in_out_params(in_out_params), 
+    LweKeySwitchKey* ks,
+    unsigned int32_t window_size): in_out_params(in_out_params),
     bk_params(bk_params),
     accum_params(accum_params),
     extract_params(extract_params),
-    bk(bk), ks(ks) {}
+    bk(bk), ks(ks), window_size(window_size) {}
 
 LweBootstrappingKey::~LweBootstrappingKey() {}
 
@@ -53,20 +54,20 @@ LweBootstrappingKeyFFT::~LweBootstrappingKeyFFT() {
 /*
  * LweBootstrappingKey is converted to a BootstrappingKeyFFT
  */
-LweBootstrappingKeyFFT::LweBootstrappingKeyFFT(const LweParams* in_out_params, 
+LweBootstrappingKeyFFT::LweBootstrappingKeyFFT(const LweParams* in_out_params,
     const TGswParams* bk_params,
     const TLweParams* accum_params,
-    const LweParams* extract_params, 
+    const LweParams* extract_params,
     const TGswSampleFFT* bkFFT,
-    const LweKeySwitchKey* ks): in_out_params(in_out_params), 
-    bk_params(bk_params), 
-    accum_params(accum_params), 
+    const LweKeySwitchKey* ks, unsigned int32_t window_size): in_out_params(in_out_params),
+    bk_params(bk_params),
+    accum_params(accum_params),
     extract_params(extract_params),
-    bkFFT(bkFFT), ks(ks) {}
+    bkFFT(bkFFT), ks(ks), window_size(window_size) {}
 
 
 LweBootstrappingKeyFFT::~LweBootstrappingKeyFFT() {}
- 
+
 
 
 

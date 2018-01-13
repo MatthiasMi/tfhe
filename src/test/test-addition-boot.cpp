@@ -27,8 +27,13 @@ void dieDramatically(string message) {
 }
 
 
+<<<<<<< HEAD
 void full_adder_MUX(LweSample *sum, const LweSample *x, const LweSample *y, const int nb_bits,
                     const TFheGateBootstrappingSecretKeySet *keyset) {
+=======
+void full_adder_MUX(LweSample *sum, const LweSample *x, const LweSample *y, const int32_t nb_bits,
+                    const TFheGateBootstrappingSecretKeySet *keyset, unsigned int32_t window_size = 1) {
+>>>>>>> 2033c6b... i++
     const LweParams *in_out_params = keyset->params->in_out_params;
     // carries
     LweSample *carry = new_LweSample_array(2, in_out_params);
@@ -36,14 +41,19 @@ void full_adder_MUX(LweSample *sum, const LweSample *x, const LweSample *y, cons
     // temps
     LweSample *temp = new_LweSample_array(2, in_out_params);
 
+<<<<<<< HEAD
     for (int i = 0; i < nb_bits; ++i) {
         //sumi = xi XOR yi XOR carry(i-1) 
+=======
+    for (int32_t i = 0; i < nb_bits; ++i) {
+        //sumi = xi XOR yi XOR carry(i-1)
+>>>>>>> 2033c6b... i++
         bootsXOR(temp, x + i, y + i, &keyset->cloud); // temp = xi XOR yi
         bootsXOR(sum + i, temp, carry, &keyset->cloud);
 
         // carry = MUX(xi XOR yi, carry(i-1), xi AND yi)
         bootsAND(temp + 1, x + i, y + i, &keyset->cloud); // temp1 = xi AND yi
-        bootsMUX(carry + 1, temp, carry, temp + 1, &keyset->cloud);
+        bootsMUX(carry + 1, temp, carry, temp + 1, &keyset->cloud, window_size);
 
         bool mess1 = bootsSymDecrypt(temp, keyset);
         bool mess2 = bootsSymDecrypt(carry, keyset);
@@ -76,8 +86,13 @@ void full_adder(LweSample *sum, const LweSample *x, const LweSample *y, const in
     // temps
     LweSample *temp = new_LweSample_array(3, in_out_params);
 
+<<<<<<< HEAD
     for (int i = 0; i < nb_bits; ++i) {
         //sumi = xi XOR yi XOR carry(i-1) 
+=======
+    for (int32_t i = 0; i < nb_bits; ++i) {
+        //sumi = xi XOR yi XOR carry(i-1)
+>>>>>>> 2033c6b... i++
         bootsXOR(temp, x + i, y + i, &keyset->cloud); // temp = xi XOR yi
         bootsXOR(sum + i, temp, carry, &keyset->cloud);
 
@@ -94,8 +109,13 @@ void full_adder(LweSample *sum, const LweSample *x, const LweSample *y, const in
 }
 
 
+<<<<<<< HEAD
 void comparison_MUX(LweSample *comp, const LweSample *x, const LweSample *y, const int nb_bits,
                     const TFheGateBootstrappingSecretKeySet *keyset) {
+=======
+void comparison_MUX(LweSample *comp, const LweSample *x, const LweSample *y, const int32_t nb_bits,
+                    const TFheGateBootstrappingSecretKeySet *keyset, unsigned int32_t window_size = 1) {
+>>>>>>> 2033c6b... i++
     const LweParams *in_out_params = keyset->params->in_out_params;
     // carries
     LweSample *carry = new_LweSample_array(2, in_out_params);
@@ -105,7 +125,7 @@ void comparison_MUX(LweSample *comp, const LweSample *x, const LweSample *y, con
 
     for (int i = 0; i < nb_bits; ++i) {
         bootsXOR(temp, x + i, y + i, &keyset->cloud); // temp = xi XOR yi
-        bootsMUX(carry + 1, temp, y + i, carry, &keyset->cloud);
+        bootsMUX(carry + 1, temp, y + i, carry, &keyset->cloud, window_size);
         bootsCOPY(carry, carry + 1, &keyset->cloud);
     }
     bootsCOPY(comp, carry, &keyset->cloud);
@@ -140,8 +160,13 @@ int main(int argc, char **argv) {
     const int nb_bits = 16;
     const int nb_trials = 10;
 
+<<<<<<< HEAD
     // generate params 
     int minimum_lambda = 100;
+=======
+    // generate params
+    int32_t minimum_lambda = 100;
+>>>>>>> 2033c6b... i++
     TFheGateBootstrappingParameterSet *params = new_default_gate_bootstrapping_parameters(minimum_lambda);
     const LweParams *in_out_params = params->in_out_params;
     // generate the secret keyset
@@ -162,7 +187,7 @@ int main(int argc, char **argv) {
 
 
 
-        // evaluate the addition circuit 
+        // evaluate the addition circuit
         cout << "starting bootstrapping " << nb_bits << "-bits addition circuit (FA in MUX version)...trial " << trial
              << endl;
         clock_t begin1 = clock();
@@ -197,7 +222,7 @@ int main(int argc, char **argv) {
 
 
 
-        // evaluate the addition circuit 
+        // evaluate the addition circuit
         cout << "starting bootstrapping " << nb_bits << "-bits addition circuit (FA)...trial " << trial << endl;
         clock_t begin2 = clock();
         full_adder(sum, x, y, nb_bits, keyset);
@@ -228,7 +253,7 @@ int main(int argc, char **argv) {
 
 
         LweSample *comp = new_LweSample(in_out_params);
-        // evaluate the addition circuit 
+        // evaluate the addition circuit
         cout << "starting bootstrapping " << nb_bits << "-bits comparison...trial " << trial << endl;
         clock_t begin3 = clock();
         comparison_MUX(comp, x, y, nb_bits, keyset);

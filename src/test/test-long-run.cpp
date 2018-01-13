@@ -26,6 +26,7 @@ int main(int argc, char **argv) {
         tfhe_random_generator_setSeed(&seed, 1);
     }
 
+//    unsigned int32_t window_size = 1;
 //TODO: parallelization
     static const int NAND_GATE = 0;
     static const int OR_GATE = 1;
@@ -39,8 +40,13 @@ int main(int argc, char **argv) {
     static const int ORYN_GATE = 9;
     // static const int MUX_GATE = 10;
     //TODO: parallelization
+<<<<<<< HEAD
     static const int nb_test_gates = 10000000; // number of gates to be tested 
     static const int nb_samples = 50; // number of samples to be tested 
+=======
+    static const int32_t nb_test_gates = 10000000; // number of gates to be tested
+    static const int32_t nb_samples = 50; // number of samples to be tested
+>>>>>>> 2033c6b... i++
     static const Torus32 MU = modSwitchToTorus32(1, 8);
 
     // Parameters
@@ -62,11 +68,19 @@ int main(int argc, char **argv) {
         int gate = rand() % 11; // randomly chose a gate between the 10 binary gates and the MUX
 
         // randomply chose 2/3 inputs and the output between the samples
+<<<<<<< HEAD
         int in1 = rand() % nb_samples;
         int in2 = rand() % nb_samples;
         int in3 = rand() % nb_samples;
         int out = rand() % nb_samples;
         // randomly apply a not to the inputs 
+=======
+        int32_t in1 = rand() % nb_samples;
+        int32_t in2 = rand() % nb_samples;
+        int32_t in3 = rand() % nb_samples;
+        int32_t out = rand() % nb_samples;
+        // randomly apply a not to the inputs
+>>>>>>> 2033c6b... i++
         if (rand() % 2 == 1) { bootsNOT(test + in1, test + in1, key_cloud); }
         if (rand() % 2 == 1) { bootsNOT(test + in2, test + in2, key_cloud); }
         if (rand() % 2 == 1) { bootsNOT(test + in3, test + in3, key_cloud); }
@@ -80,7 +94,7 @@ int main(int argc, char **argv) {
             /** bootstrapped Nand Gate */
             // bootsNAND(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (NAND_GATE):
-                // test the gate 
+                // test the gate
                 bootsNAND(test + out, test + in1, test + in2, key_cloud);
                 mess = 1 - (mess1 && mess2);
                 break;
@@ -89,7 +103,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped Or Gate:  */
                 // bootsOR(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (OR_GATE):
-                // test the gate 
+                // test the gate
                 bootsOR(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 || mess2);
                 break;
@@ -98,7 +112,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped And Gate: result = a and b */
                 // bootsAND(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (AND_GATE):
-                // test the gate 
+                // test the gate
                 bootsAND(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 && mess2);
                 break;
@@ -107,7 +121,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped Xor Gate: result = a xor b */
                 // bootsXOR(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (XOR_GATE):
-                // test the gate 
+                // test the gate
                 bootsXOR(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 ^ mess2);
                 break;
@@ -116,7 +130,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped Xnor Gate: result = (a==b) */
                 // bootsXNOR(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (XNOR_GATE):
-                // test the gate 
+                // test the gate
                 bootsXNOR(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 == mess2);
                 break;
@@ -125,7 +139,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped Nor Gate: result = not(a or b) */
                 // bootsNOR(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (NOR_GATE):
-                // test the gate 
+                // test the gate
                 bootsNOR(test + out, test + in1, test + in2, key_cloud);
                 mess = 1 - (mess1 || mess2);
                 break;
@@ -134,7 +148,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped AndNY Gate: not(a) and b */
                 // bootsANDNY(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (ANDNY_GATE):
-                // test the gate 
+                // test the gate
                 bootsANDNY(test + out, test + in1, test + in2, key_cloud);
                 mess = ((1 - mess1) && mess2);
                 break;
@@ -143,7 +157,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped AndYN Gate: a and not(b) */
                 // bootsANDYN(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (ANDYN_GATE):
-                // test the gate 
+                // test the gate
                 bootsANDYN(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 && (1 - mess2));
                 break;
@@ -152,7 +166,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped OrNY Gate: not(a) or b */
                 // bootsORNY(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (ORNY_GATE):
-                // test the gate 
+                // test the gate
                 bootsORNY(test + out, test + in1, test + in2, key_cloud);
                 mess = ((1 - mess1) || mess2);
                 break;
@@ -161,7 +175,7 @@ int main(int argc, char **argv) {
                 /** bootstrapped OrYN Gate: a or not(b) */
                 // bootsORYN(LweSample* result, const LweSample* ca, const LweSample* cb, const TFheGateBootstrappingCloudKeySet* bk);
             case (ORYN_GATE):
-                // test the gate 
+                // test the gate
                 bootsORYN(test + out, test + in1, test + in2, key_cloud);
                 mess = (mess1 || (1 - mess2));
                 break;
@@ -170,12 +184,12 @@ int main(int argc, char **argv) {
                 /** bootstrapped Mux(a,b,c) = a?b:c */
                 // bootsMUX(LweSample* result, const LweSample* a, const LweSample* b, const LweSample* c, const TFheGateBootstrappingCloudKeySet* bk);
             default:
-                // test the gate 
-                bootsMUX(test + out, test + in1, test + in2, test + in3, key_cloud);
+                // test the gate
+                bootsMUX(test + out, test + in1, test + in2, test + in3, key_cloud, window_size);
                 mess = (mess1 ? mess2 : mess3);
         }
 
-        // verification 
+        // verification
         if (bootsSymDecrypt(test + out, keyset) != mess) {
             cerr << "ERROR!!!" << i << " " << gate << " "
                  << t32tod(lwePhase(test + out, keyset->lwe_key) - (mess ? MU : (-MU))) << endl;

@@ -32,7 +32,7 @@ using namespace std;
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -46,7 +46,7 @@ bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -58,7 +58,7 @@ bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -72,7 +72,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -84,7 +84,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -98,7 +98,7 @@ bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -110,7 +110,7 @@ bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -124,7 +124,7 @@ bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -136,7 +136,7 @@ bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -150,7 +150,7 @@ bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -195,7 +195,7 @@ EXPORT void bootsCONSTANT(LweSample *result, int value, const TFheGateBootstrapp
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -209,7 +209,7 @@ bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -221,7 +221,7 @@ bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -235,7 +235,7 @@ bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TF
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -273,7 +273,7 @@ bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TF
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -287,7 +287,7 @@ bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
@@ -299,7 +299,7 @@ bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk) {
+bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, unsigned int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -313,7 +313,7 @@ bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
 
     //if the phase is positive, the result is 1/8
     //if the phase is positive, else the result is -1/8
-    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result);
+    tfhe_bootstrap_FFT(result, bk->bkFFT, MU, temp_result, window_size);
 
     delete_LweSample(temp_result);
 }
