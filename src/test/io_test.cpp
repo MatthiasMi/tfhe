@@ -8,6 +8,7 @@
 using namespace std;
 
 namespace {
+    const int32_t window_size = 1;
 
     const LweParams* lweparams500 = new_LweParams(500,0.1,0.3);
     const LweParams* lweparams120 = new_LweParams(120,0.1,0.3);
@@ -81,7 +82,7 @@ namespace {
 
 
     //generate a random ks
-    LweBootstrappingKey* new_random_bk_key(int32_t ks_t, int32_t ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params, const uint32_t window_size) {
+    LweBootstrappingKey* new_random_bk_key(int32_t ks_t, int32_t ks_basebit, const LweParams* in_out_params, const TGswParams* bk_params, const int32_t window_size) {
 	const int32_t n = in_out_params->n;
         const int32_t kpl = bk_params->kpl;
         const int32_t k = bk_params->tlwe_params->k;
@@ -476,7 +477,7 @@ namespace {
                 export_tfheGateBootstrappingParameterSet_toFile(stdout, gbp);
                 string result = oss.str();
                 istringstream iss(result);
-                TFheGateBootstrappingParameterSet* gbp1 = new_tfheGateBootstrappingParameterSet_fromStream(iss);
+                TFheGateBootstrappingParameterSet* gbp1 = new_tfheGateBootstrappingParameterSet_fromStream(iss, window_size);
                 assert_equals(gbp,gbp1);
                 delete_gate_bootstrapping_parameters(gbp1);
             }
@@ -485,7 +486,7 @@ namespace {
 
 
     class IOTest2 : public ::testing::Test {
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
         public:
            //we don't do anything with the FFT section
            LweBootstrappingKeyFFT* new_LweBootstrappingKeyFFT(const LweBootstrappingKey*) { return 0x0; }
@@ -496,14 +497,14 @@ namespace {
     };
 
     TEST_F(IOTest2, TFheGateBootstrappingCloudKeySetIO) {
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
         for (const TFheGateBootstrappingCloudKeySet* gbck: allgbck) {
             {
                 ostringstream oss;
                 export_tfheGateBootstrappingCloudKeySet_toStream(oss, gbck);
                 string result = oss.str();
                 istringstream iss(result);
-                TFheGateBootstrappingCloudKeySet* gbck1 = new_tfheGateBootstrappingCloudKeySet_fromStream(iss);
+                TFheGateBootstrappingCloudKeySet* gbck1 = new_tfheGateBootstrappingCloudKeySet_fromStream(iss, window_size;
                 assert_equals(gbck,gbck1);
                 delete_gate_bootstrapping_cloud_keyset(gbck1, window_size);
             }
@@ -511,14 +512,14 @@ namespace {
     }
 
     TEST_F(IOTest2, TFheGateBootstrappingSecretKeySetIO) {
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
         for (const TFheGateBootstrappingSecretKeySet* gbsk: allgbsk) {
             {
                 ostringstream oss;
                 export_tfheGateBootstrappingSecretKeySet_toStream(oss, gbsk);
                 string result = oss.str();
                 istringstream iss(result);
-                TFheGateBootstrappingSecretKeySet* gbsk1 = new_tfheGateBootstrappingSecretKeySet_fromStream(iss);
+                TFheGateBootstrappingSecretKeySet* gbsk1 = new_tfheGateBootstrappingSecretKeySet_fromStream(iss, window_size);
                 assert_equals(gbsk,gbsk1);
                 delete_gate_bootstrapping_secret_keyset(gbsk1, window_size);
             }

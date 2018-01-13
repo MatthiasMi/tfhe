@@ -29,7 +29,7 @@ void dieDramatically(string message) {
 
 
 void full_adder_MUX(LweSample *sum, const LweSample *x, const LweSample *y, const int32_t nb_bits,
-                    const TFheGateBootstrappingSecretKeySet *keyset, const uint32_t window_size = 1) {
+                    const TFheGateBootstrappingSecretKeySet *keyset, const int32_t window_size = 1) {
     const LweParams *in_out_params = keyset->params->in_out_params;
     // carries
     LweSample *carry = new_LweSample_array(2, in_out_params);
@@ -98,7 +98,7 @@ void full_adder(LweSample *sum, const LweSample *x, const LweSample *y, const in
 
 
 void comparison_MUX(LweSample *comp, const LweSample *x, const LweSample *y, const int32_t nb_bits,
-                    const TFheGateBootstrappingSecretKeySet *keyset, const uint32_t window_size = 1) {
+                    const TFheGateBootstrappingSecretKeySet *keyset, const int32_t window_size = 1) {
     const LweParams *in_out_params = keyset->params->in_out_params;
     // carries
     LweSample *carry = new_LweSample_array(2, in_out_params);
@@ -140,7 +140,7 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     cout << "DEBUG MODE!" << endl;
 #endif
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
     const int32_t nb_bits = 16;
     const int32_t nb_trials = 10;
 
@@ -149,7 +149,7 @@ int main(int argc, char **argv) {
     TFheGateBootstrappingParameterSet *params = new_default_gate_bootstrapping_parameters(minimum_lambda);
     const LweParams *in_out_params = params->in_out_params;
     // generate the secret keyset
-    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params);
+    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params, window_size);
 
 
     for (int trial = 0; trial < nb_trials; ++trial) {

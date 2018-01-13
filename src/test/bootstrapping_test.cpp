@@ -101,7 +101,7 @@ namespace {
         FakeTGsw *fbk = fake(bk);
         for (int i = 0; i < n; i++) fbk[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
-        const uint32_t window_size = 1;
+        const int32_t window_size = 1;
         //create bara
         int *bara = new int[n];
         for (int i = 0; i < n; i++) bara[i] = rand() % (2 * N);
@@ -119,13 +119,8 @@ namespace {
         faccum->current_variance = initAlphaAccum * initAlphaAccum;
 
         //call bootstraprotate: one iteration at a time
-<<<<<<< HEAD
-        for (int i = 0; i < n; i++) {
-            tfhe_blindRotate(accum, bk + i, bara + i, 1, bk_params);
-=======
         for (int32_t i = 0; i < n; i++) {
             tfhe_blindRotate(accum, bk + i, bara + i, 1, bk_params, window_size);
->>>>>>> 0f4ea87... ++
             if (key[i] == 1 && bara[i] != 0) {
                 expectedOffset = (expectedOffset + bara[i]) % (2 * N);
                 torusPolynomialMulByXai(expectedAccumMessage, expectedOffset, initAccumMessage);
@@ -192,7 +187,7 @@ namespace {
         FakeTGsw *fbk = fake(bk);
         for (int i = 0; i < n; i++) fbk[i].setMessageVariance(key[i], alpha_bk * alpha_bk);
 
-        const uint32_t window_size = 1;
+        const int32_t window_size = 1;
         //create bara and b
         int *bara = new int[n];
         //create v
@@ -259,7 +254,7 @@ namespace {
     //  Torus32 mu, const LweSample* x)
     TEST_F(TfheBootstrapWoKSTest, tfheBootstrapWoKSTest) {
         const Torus32 TEST_MU = 123456789;
-        const uint32_t window_size = 1;
+        const int32_t window_size = 1;
         const int32_t NB_TRIALS = 30;
         const int32_t Nx2 = 2 * N;
         const int32_t n = in_params->n;

@@ -26,16 +26,17 @@ EXPORT TFheGateBootstrappingParameterSet *new_default_gate_bootstrapping_paramet
     if (minimum_lambda > 128)
         die_dramatically("Sorry, for now, the parameters are only implemented for about 128bit of security!");
 
-    static const int N = 1024;
-    static const int k = 1;
-    static const int n = 500;
-    static const int bk_l = 2;
-    static const int bk_Bgbit = 10;
-    static const int ks_basebit = 2;
-    static const int ks_length = 8;
-    static const double ks_stdev = mulBySqrtTwoOverPi(pow(2., -15));   //standard deviation
-    static const double bk_stdev = mulBySqrtTwoOverPi(9.e-9);          //standard deviation
-    static const double max_stdev = mulBySqrtTwoOverPi(pow(2., -4) / 4.); //max standard deviation for a 1/4 msg space
+    const int32_t window_size = 1;
+    static const int32_t N = 1024;
+    static const int32_t k = 1;
+    static const int32_t n = 600;
+    static const int32_t bk_l = 3;
+    static const int32_t bk_Bgbit = 10; //<-- 2^10
+    static const int32_t ks_basebit = 1; //<-- 2^1
+    static const int32_t ks_length = 18;
+    static const double ks_stdev = pow(2., -25);//0;//mulBySqrtTwoOverPi(pow(2., -30));   //standard deviation
+    static const double bk_stdev = pow(2., -36);//0;//mulBySqrtTwoOverPi(pow(2., -30));          //standard deviation
+    static const double max_stdev = pow(2., -30);//0;//mulBySqrtTwoOverPi(pow(2., -30)); //max standard deviation for a 1/4 msg space
 
     LweParams *params_in = new_LweParams(n, ks_stdev, max_stdev);
     TLweParams *params_accum = new_TLweParams(N, k, bk_stdev, max_stdev);
@@ -45,7 +46,7 @@ EXPORT TFheGateBootstrappingParameterSet *new_default_gate_bootstrapping_paramet
     TfheGarbageCollector::register_param(params_accum);
     TfheGarbageCollector::register_param(params_bk);
 
-    return new TFheGateBootstrappingParameterSet(ks_length, ks_basebit, params_in, params_bk);
+    return new TFheGateBootstrappingParameterSet(ks_length, ks_basebit, params_in, params_bk, window_size);
 }
 
 /** deletes gate bootstrapping parameters */
@@ -55,20 +56,20 @@ EXPORT void delete_gate_bootstrapping_parameters(TFheGateBootstrappingParameterS
 
 /** generate a gate bootstrapping secret key */
 EXPORT TFheGateBootstrappingSecretKeySet *
-new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params, const uint32_t window_size) {
+new_random_gate_bootstrapping_secret_keyset(const TFheGateBootstrappingParameterSet *params, const int32_t window_size) {
     LweKey *lwe_key = new_LweKey(params->in_out_params);
     lweKeyGen(lwe_key);
     TGswKey *tgsw_key = new_TGswKey(params->tgsw_params);
     tGswKeyGen(tgsw_key);
     LweBootstrappingKey *bk = new_LweBootstrappingKey(params->ks_t, params->ks_basebit, params->in_out_params,
                                                       params->tgsw_params, window_size);
-    tfhe_createLweBootstrappingKey(bk, lwe_key, tgsw_key);
+    tfhe_createLweBootstrappingKey(bk, lwe_key, tgsw_key, window_size);
     LweBootstrappingKeyFFT *bkFFT = new_LweBootstrappingKeyFFT(bk, window_size);
     return new TFheGateBootstrappingSecretKeySet(params, bk, bkFFT, lwe_key, tgsw_key);
 }
 
 /** deletes a gate bootstrapping secret key */
-EXPORT void delete_gate_bootstrapping_secret_keyset(TFheGateBootstrappingSecretKeySet *keyset, const uint32_t window_size) {
+EXPORT void delete_gate_bootstrapping_secret_keyset(TFheGateBootstrappingSecretKeySet *keyset, const int32_t window_size) {
     LweKey *lwe_key = (LweKey *) keyset->lwe_key;
     TGswKey *tgsw_key = (TGswKey *) keyset->tgsw_key;
     LweBootstrappingKey *bk = (LweBootstrappingKey *) keyset->cloud.bk;
@@ -81,7 +82,7 @@ EXPORT void delete_gate_bootstrapping_secret_keyset(TFheGateBootstrappingSecretK
 }
 
 /** deletes a gate bootstrapping cloud key */
-EXPORT void delete_gate_bootstrapping_cloud_keyset(TFheGateBootstrappingCloudKeySet *keyset, const uint32_t window_size) {
+EXPORT void delete_gate_bootstrapping_cloud_keyset(TFheGateBootstrappingCloudKeySet *keyset, const int32_t window_size) {
     LweBootstrappingKey *bk = (LweBootstrappingKey *) keyset->bk;
     LweBootstrappingKeyFFT *bkFFT = (LweBootstrappingKeyFFT *) keyset->bkFFT;
     if (bkFFT) delete_LweBootstrappingKeyFFT(bkFFT, window_size);

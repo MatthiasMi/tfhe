@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     cout << "DEBUG MODE!" << endl;
 #endif
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
     const int32_t nb_samples = 50;
     const Torus32 mu_boot = modSwitchToTorus32(1, 8);
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
     TFheGateBootstrappingParameterSet *params = new_default_gate_bootstrapping_parameters(minimum_lambda);
     const LweParams *in_out_params = params->in_out_params;
     // generate the secret keyset
-    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params);
+    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params, window_size);
 
     // generate input samples
     LweSample *test_in = new_LweSample_array(nb_samples, in_out_params);
@@ -65,8 +65,8 @@ int main(int argc, char **argv) {
     // bootstrap input samples
     cout << "starting bootstrapping..." << endl;
     clock_t begin = clock();
-    for (int i = 0; i < nb_samples; ++i) {
-        tfhe_bootstrap_FFT(test_out + i, keyset->cloud.bkFFT, mu_boot, test_in + i);
+    for (int32_t i = 0; i < nb_samples; ++i) {
+        tfhe_bootstrap_FFT(test_out + i, keyset->cloud.bkFFT, mu_boot, test_in + i, window_size);
     }
     clock_t end = clock();
     cout << "finished " << nb_samples << " bootstrappings" << endl;

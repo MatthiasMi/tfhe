@@ -11,10 +11,11 @@ struct TFheGateBootstrappingParameterSet {
     const int ks_basebit;
     const LweParams *const in_out_params;
     const TGswParams *const tgsw_params;
+    const int32_t window_size;
 #ifdef __cplusplus
 
     TFheGateBootstrappingParameterSet(const int32_t ks_t, const int32_t ks_basebit, const LweParams *const in_out_params,
-                                      const TGswParams *const tgsw_params, const uint32_t window_size);
+                                      const TGswParams *const tgsw_params, const int32_t window_size);
     TFheGateBootstrappingParameterSet(const TFheGateBootstrappingParameterSet &) = delete;
 
     void operator=(const TFheGateBootstrappingParameterSet &)= delete;

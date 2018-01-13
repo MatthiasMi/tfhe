@@ -266,8 +266,8 @@ namespace {
     /** result = result - p.sample */
     //EXPORT void tGswSubMulTo(TLweSample* result, int p, const TLweSample* sample, const TLweParams* params);
 
-    EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey *key_in, const TGswKey *rgsw_key, const uint32_t window_size);
-    EXPORT void tfhe_bootstrap(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x, const uint32_t window_size);
+    EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey *key_in, const TGswKey *rgsw_key, const int32_t window_size);
+    EXPORT void tfhe_bootstrap(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x, const int32_t window_size);
 
 }
 

@@ -32,7 +32,7 @@ using namespace std;
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -58,7 +58,7 @@ bootsNAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -84,7 +84,7 @@ bootsOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheG
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -110,7 +110,7 @@ bootsAND(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -136,7 +136,7 @@ bootsXOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -161,7 +161,7 @@ bootsXNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Takes in input 1 LWE samples (with message space [-1/8,1/8], noise<1/16)
  * Outputs a LWE sample (with message space [-1/8,1/8], noise<1/16)
 */
-EXPORT void bootsNOT(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+EXPORT void bootsNOT(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     const LweParams *in_out_params = bk->params->in_out_params;
     lweNegate(result, ca, in_out_params);
 }
@@ -172,7 +172,7 @@ EXPORT void bootsNOT(LweSample *result, const LweSample *ca, const TFheGateBoots
  * Takes in input 1 LWE samples (with message space [-1/8,1/8], noise<1/16)
  * Outputs a LWE sample (with message space [-1/8,1/8], noise<1/16)
 */
-EXPORT void bootsCOPY(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+EXPORT void bootsCOPY(LweSample *result, const LweSample *ca, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     const LweParams *in_out_params = bk->params->in_out_params;
     lweCopy(result, ca, in_out_params);
 }
@@ -182,7 +182,7 @@ EXPORT void bootsCOPY(LweSample *result, const LweSample *ca, const TFheGateBoot
  * Takes a boolean value)
  * Outputs a LWE sample (with message space [-1/8,1/8], noise<1/16)
 */
-EXPORT void bootsCONSTANT(LweSample *result, int32_t value, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+EXPORT void bootsCONSTANT(LweSample *result, int32_t value, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     const LweParams *in_out_params = bk->params->in_out_params;
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     lweNoiselessTrivial(result, value ? MU : -MU, in_out_params);
@@ -195,7 +195,7 @@ EXPORT void bootsCONSTANT(LweSample *result, int32_t value, const TFheGateBootst
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -221,7 +221,7 @@ bootsNOR(LweSample *result, const LweSample *ca, const LweSample *cb, const TFhe
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -247,7 +247,7 @@ bootsANDNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TF
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -273,7 +273,7 @@ bootsANDYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TF
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -299,7 +299,7 @@ bootsORNY(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void
-bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
 
@@ -327,7 +327,7 @@ bootsORYN(LweSample *result, const LweSample *ca, const LweSample *cb, const TFh
  * Outputs a LWE bootstrapped sample (with message space [-1/8,1/8], noise<1/16)
 */
 EXPORT void bootsMUX(LweSample *result, const LweSample *a, const LweSample *b, const LweSample *c,
-                     const TFheGateBootstrappingCloudKeySet *bk, const uint32_t window_size) {
+                     const TFheGateBootstrappingCloudKeySet *bk, const int32_t window_size) {
     static const Torus32 MU = modSwitchToTorus32(1, 8);
     const LweParams *in_out_params = bk->params->in_out_params;
     const LweParams *extracted_params = &bk->params->tgsw_params->tlwe_params->extracted_lweparams;

@@ -382,7 +382,7 @@ EXPORT void export_tfheGateBootstrappingParameterSet_toFile(FILE *F, const TFheG
  * This constructor function reads and creates a tfhe gate bootstrapping parameter set from a File. The result
  * must be deleted with delete_tfheGateBootstrappingParameterSet();
  */
-EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F, const uint32_t window_size);
+EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromFile(FILE *F, const int32_t window_size);
 
 #ifdef __cplusplus
 
@@ -396,7 +396,7 @@ export_tfheGateBootstrappingParameterSet_toStream(std::ostream &F, const TFheGat
  * This constructor function reads and creates a tfhe gate bootstrapping parameter set from a File. The result
  * must be deleted with delete_tfheGateBootstrappingParameterSet();
  */
-EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromStream(std::istream &F);
+EXPORT TFheGateBootstrappingParameterSet *new_tfheGateBootstrappingParameterSet_fromStream(std::istream &F, const int32_t window_size);
 
 #endif
 
@@ -413,7 +413,7 @@ EXPORT void export_tfheGateBootstrappingCloudKeySet_toFile(FILE *F, const TFheGa
  * This constructor function reads and creates a tfhe gate bootstrapping cloud key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingCloudKeySet();
  */
-EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromFile(FILE *F);
+EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromFile(FILE *F, const int32_t window_size);
 
 #ifdef __cplusplus
 
@@ -427,7 +427,7 @@ export_tfheGateBootstrappingCloudKeySet_toStream(std::ostream &F, const TFheGate
  * This constructor function reads and creates a tfhe gate bootstrapping cloud key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingCloudKeySet();
  */
-EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromStream(std::istream &F);
+EXPORT TFheGateBootstrappingCloudKeySet *new_tfheGateBootstrappingCloudKeySet_fromStream(std::istream &F, const int32_t window_size);
 
 #endif
 
@@ -444,7 +444,7 @@ EXPORT void export_tfheGateBootstrappingSecretKeySet_toFile(FILE *F, const TFheG
  * This constructor function reads and creates a tfhe gate bootstrapping secret key from a File. The result
  * must be deleted with delete_tfheGateBootstrappingSecretKeySet();
  */
-EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromFile(FILE *F);
+EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromFile(FILE *F, const int32_t window_size);
 
 #ifdef __cplusplus
 
@@ -458,7 +458,7 @@ export_tfheGateBootstrappingSecretKeySet_toStream(std::ostream &F, const TFheGat
  * This constructor function reads and creates a TGSWKey from a stream. The result
  * must be deleted with delete_tfheGateBootstrappingSecretKeySet();
  */
-EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromStream(std::istream &F);
+EXPORT TFheGateBootstrappingSecretKeySet *new_tfheGateBootstrappingSecretKeySet_fromStream(std::istream &F, const int32_t window_size);
 
 #endif
 

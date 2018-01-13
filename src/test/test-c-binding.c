@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     printf("DEBUG MODE!\n");
 #endif
-    const const uint32_t window_size = 1;
+    const const int32_t window_size = 1;
 
     const int N = 1024;
     const int k = 1;

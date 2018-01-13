@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
         tfhe_random_generator_setSeed(&seed, 1);
     }
 
-//    const uint32_t window_size = 1;
+//    const int32_t window_size = 1;
 //TODO: parallelization
     static const int NAND_GATE = 0;
     static const int OR_GATE = 1;
@@ -40,8 +40,7 @@ int main(int argc, char **argv) {
     static const int ORYN_GATE = 9;
     // static const int MUX_GATE = 10;
     //TODO: parallelization
-
-    const uint32_t window_size = 1;
+    const int32_t window_size = 1;
     static const int32_t nb_test_gates = 10000000; // number of gates to be tested
     static const int32_t nb_samples = 50; // number of samples to be tested
     static const Torus32 MU = modSwitchToTorus32(1, 8);
@@ -51,7 +50,7 @@ int main(int argc, char **argv) {
     TFheGateBootstrappingParameterSet *params = new_default_gate_bootstrapping_parameters(minimum_lambda);
     const LweParams *in_out_params = params->in_out_params;
     // Secret keyset
-    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params);
+    TFheGateBootstrappingSecretKeySet *keyset = new_random_gate_bootstrapping_secret_keyset(params, window_size);
     const TFheGateBootstrappingCloudKeySet *key_cloud = &keyset->cloud;
 
     // Generate an array containing nb_samples Lwe samples, all initially encoding false

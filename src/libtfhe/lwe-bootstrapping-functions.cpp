@@ -14,7 +14,7 @@ using namespace std;
 
 
 EXPORT void init_LweBootstrappingKey(LweBootstrappingKey *obj, int32_t ks_t, int32_t ks_basebit, const LweParams *in_out_params,
-                                     const TGswParams *bk_params, const uint32_t window_size) {
+                                     const TGswParams *bk_params, const int32_t window_size) {
     const TLweParams *accum_params = bk_params->tlwe_params;
     const LweParams *extract_params = &accum_params->extracted_lweparams;
     const int n = in_out_params->n;
@@ -26,7 +26,7 @@ EXPORT void init_LweBootstrappingKey(LweBootstrappingKey *obj, int32_t ks_t, int
 
     new(obj) LweBootstrappingKey(in_out_params, bk_params, accum_params, extract_params, bk, ks, window_size);
 }
-EXPORT void destroy_LweBootstrappingKey(LweBootstrappingKey *obj, const uint32_t window_size) {
+EXPORT void destroy_LweBootstrappingKey(LweBootstrappingKey *obj, const int32_t window_size) {
     double key_expansion_factor = ( ( 1 << window_size ) - 1 ) / window_size; // (2^w - 1)/w
     delete_LweKeySwitchKey(obj->ks);
     delete_TGswSample_array(obj->in_out_params->n, obj->bk);
@@ -56,7 +56,8 @@ void tfhe_MuxRotate(TLweSample *result, const TLweSample *accum, const TGswSampl
  * @param bk_params The parameters of bk
  */
 EXPORT void
-tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const uint32_t window_size) {
+tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size) {
+
     //TGswSample* temp = new_TGswSample(bk_params);
     TLweSample *temp = new_TLweSample(bk_params->tlwe_params);
     TLweSample *temp2 = temp;
@@ -97,7 +98,7 @@ EXPORT void tfhe_blindRotateAndExtract(LweSample *result,
                                        const int32_t barb,
                                        const int32_t *bara,
                                        const int32_t n,
-                                       const TGswParams *bk_params, const uint32_t window_size) {
+                                       const TGswParams *bk_params, const int32_t window_size) {
     const TLweParams *accum_params = bk_params->tlwe_params;
     const LweParams *extract_params = &accum_params->extracted_lweparams;
     const int N = accum_params->N;
@@ -130,7 +131,7 @@ EXPORT void tfhe_blindRotateAndExtract(LweSample *result,
 EXPORT void tfhe_bootstrap_woKS(LweSample *result,
                                 const LweBootstrappingKey *bk,
                                 Torus32 mu, const LweSample *x,
-                                const uint32_t window_size) {
+                                const int32_t window_size) {
 
     const TGswParams *bk_params = bk->bk_params;
     const TLweParams *accum_params = bk->accum_params;
@@ -170,7 +171,7 @@ EXPORT void tfhe_bootstrap_woKS(LweSample *result,
 EXPORT void tfhe_bootstrap(LweSample *result,
                            const LweBootstrappingKey *bk,
                            Torus32 mu, const LweSample *x,
-                           const uint32_t window_size) {
+                           const int32_t window_size) {
     LweSample *u = new_LweSample(&bk->accum_params->extracted_lweparams);
 
     tfhe_bootstrap_woKS(u, bk, mu, x, window_size);
@@ -187,7 +188,7 @@ EXPORT void tfhe_bootstrap(LweSample *result,
 EXPORT void tfhe_createLweBootstrappingKey(
         LweBootstrappingKey *bk,
         const LweKey *key_in,
-        const TGswKey *rgsw_key, const uint32_t window_size) {
+        const TGswKey *rgsw_key, const int32_t window_size) {
     assert(bk->bk_params == rgsw_key->params);
     assert(bk->in_out_params == key_in->params);
 
@@ -212,9 +213,9 @@ EXPORT void tfhe_createLweBootstrappingKey(
     //const int N = accum_params->N;
     //cout << "create the bootstrapping key bk ("  << "  " << n*kpl*(k+1)*N*4 << " bytes)" << endl;
     //cout << "  with noise_stdev: " << alpha << endl;
-    uint32_t bk_size = (1 << window_size) - 1; // numerator: 2^w - 1
-    uint32_t ks_size = window_size;            // denominator: w
-    uint32_t num_windows = n/ks_size;
+    int32_t bk_size = (1 << window_size) - 1; // numerator: 2^w - 1
+    int32_t ks_size = window_size;            // denominator: w
+    int32_t num_windows = n/ks_size;
 
     /*
     // E.g for window_size = 1:
@@ -229,16 +230,16 @@ EXPORT void tfhe_createLweBootstrappingKey(
     }
     */
 
-    uint32_t ks_pos = 0, bk_pos = 0;
-    uint32_t message, b, s;
+    int32_t ks_pos = 0, bk_pos = 0;
+    int32_t message, b, s;
 
-    for (uint32_t window = 0; window < num_windows; window++) // Window
+    for (int32_t window = 0; window < num_windows; window++) // Window
     {
-        for (uint32_t subset = bk_size; 0 < subset ; subset--)     // Enumerate all subsets of [1:window_size], ommit empty set.
+        for (int32_t subset = bk_size; 0 < subset ; subset--)     // Enumerate all subsets of [1:window_size], ommit empty set.
         {
             message = 1; // To accumulate the sum: \sum_i ( s_i )
-            uint32_t W = subset;
-            for (uint32_t w = 0; w < window_size ; w++)
+            int32_t W = subset;
+            for (int32_t w = 0; w < window_size ; w++)
             {
                 // cout w;
                 b  =W&1; // Extract last bit
@@ -282,7 +283,7 @@ EXPORT void free_LweBootstrappingKey_array(int nbelts, LweBootstrappingKey *ptr)
 //(equivalent of the C++ constructor)
 
 EXPORT void init_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *obj, int32_t ks_t, int32_t ks_basebit,
-                                           const LweParams *in_out_params, const TGswParams *bk_params, const uint32_t window_size) {
+                                           const LweParams *in_out_params, const TGswParams *bk_params, const int32_t window_size) {
     for (int32_t i = 0; i < nbelts; i++) {
         init_LweBootstrappingKey(obj + i, ks_t, ks_basebit, in_out_params, bk_params, window_size);
     }
@@ -291,7 +292,7 @@ EXPORT void init_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *
 //destroys the LweBootstrappingKey structure
 //(equivalent of the C++ destructor)
 
-EXPORT void destroy_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *obj, const uint32_t window_size) {
+EXPORT void destroy_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *obj, const int32_t window_size) {
     for (int32_t i = 0; i < nbelts; i++) {
         destroy_LweBootstrappingKey(obj + i, window_size);
     }
@@ -301,14 +302,14 @@ EXPORT void destroy_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKe
 //(equivalent of the C++ new)
 EXPORT LweBootstrappingKey *
 new_LweBootstrappingKey(const int32_t ks_t, const int32_t ks_basebit, const LweParams *in_out_params,
-                        const TGswParams *bk_params, const uint32_t window_size) {
+                        const TGswParams *bk_params, const int32_t window_size) {
     LweBootstrappingKey *obj = alloc_LweBootstrappingKey();
     init_LweBootstrappingKey(obj, ks_t, ks_basebit, in_out_params, bk_params);
     return obj;
 }
 EXPORT LweBootstrappingKey *
 new_LweBootstrappingKey_array(int32_t nbelts, const int32_t ks_t, const int32_t ks_basebit, const LweParams *in_out_params,
-                              const TGswParams *bk_params, const uint32_t window_size) {
+                              const TGswParams *bk_params, const int32_t window_size) {
     LweBootstrappingKey *obj = alloc_LweBootstrappingKey_array(nbelts);
     init_LweBootstrappingKey_array(nbelts, obj, ks_t, ks_basebit, in_out_params, bk_params);
     return obj;
@@ -316,11 +317,11 @@ new_LweBootstrappingKey_array(int32_t nbelts, const int32_t ks_t, const int32_t 
 
 //destroys and frees the LweBootstrappingKey structure
 //(equivalent of the C++ delete)
-EXPORT void delete_LweBootstrappingKey(LweBootstrappingKey *obj, const uint32_t window_size) {
+EXPORT void delete_LweBootstrappingKey(LweBootstrappingKey *obj, const int32_t window_size) {
     destroy_LweBootstrappingKey(obj, window_size);
     free_LweBootstrappingKey(obj);
 }
-EXPORT void delete_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *obj, const uint32_t window_size) {
+EXPORT void delete_LweBootstrappingKey_array(int32_t nbelts, LweBootstrappingKey *obj, const int32_t window_size) {
     destroy_LweBootstrappingKey_array(nbelts, obj, window_size);
     free_LweBootstrappingKey_array(nbelts, obj);
 }

@@ -5,22 +5,22 @@
 #include "tlwe.h"
 #include "tgsw.h"
 
-TFheGateBootstrappingParameterSet::TFheGateBootstrappingParameterSet(const int ks_t, const int ks_basebit, const LweParams* const in_out_params, const TGswParams* const tgsw_params):
-    ks_t(ks_t),
+TFheGateBootstrappingParameterSet::TFheGateBootstrappingParameterSet(const int32_t ks_t, const int32_t ks_basebit, const LweParams* const in_out_params, const TGswParams* const tgsw_params, const int32_t window_size):    ks_t(ks_t),
     ks_basebit(ks_basebit),
     in_out_params(in_out_params),
-    tgsw_params(tgsw_params)
+    tgsw_params(tgsw_params),
+    window_size(window_size)
 {}
 
 TFheGateBootstrappingCloudKeySet::TFheGateBootstrappingCloudKeySet(
-        const TFheGateBootstrappingParameterSet* const params, 
+        const TFheGateBootstrappingParameterSet* const params,
         const LweBootstrappingKey* const bk,
         const LweBootstrappingKeyFFT* const bkFFT):
     params(params),bk(bk),bkFFT(bkFFT)
 {}
 
 TFheGateBootstrappingSecretKeySet::TFheGateBootstrappingSecretKeySet(
-        const TFheGateBootstrappingParameterSet* const params, 
+        const TFheGateBootstrappingParameterSet* const params,
         const LweBootstrappingKey* const bk,
         const LweBootstrappingKeyFFT* const bkFFT,
         const LweKey* lwe_key,
@@ -28,5 +28,5 @@ TFheGateBootstrappingSecretKeySet::TFheGateBootstrappingSecretKeySet(
     params(params),
     lwe_key(lwe_key),
     tgsw_key(tgsw_key),
-    cloud(params,bk,bkFFT) 
+    cloud(params,bk,bkFFT)
 {}
