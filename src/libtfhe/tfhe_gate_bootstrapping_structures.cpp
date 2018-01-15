@@ -5,7 +5,8 @@
 #include "tlwe.h"
 #include "tgsw.h"
 
-TFheGateBootstrappingParameterSet::TFheGateBootstrappingParameterSet(const int32_t ks_t, const int32_t ks_basebit, const LweParams* const in_out_params, const TGswParams* const tgsw_params, const int32_t window_size):    ks_t(ks_t),
+TFheGateBootstrappingParameterSet::TFheGateBootstrappingParameterSet(const int32_t ks_t, const int32_t ks_basebit, const LweParams* const in_out_params, const TGswParams* const tgsw_params, const int32_t window_size):
+    ks_t(ks_t),
     ks_basebit(ks_basebit),
     in_out_params(in_out_params),
     tgsw_params(tgsw_params),

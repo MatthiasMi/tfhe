@@ -64,32 +64,21 @@ EXPORT void tGswFromFFTConvert(TGswSample *result, const TGswSampleFFT *source, 
 EXPORT void tGswFFTAddH(TGswSampleFFT *result, const TGswParams *params);
 EXPORT void tGswFFTClear(TGswSampleFFT *result, const TGswParams *params);
 EXPORT void tGswFFTExternMulToTLwe(TLweSample *accum, const TGswSampleFFT *gsw, const TGswParams *params);
-EXPORT void
-tGswFFTMulByXaiMinusOne(TGswSampleFFT *result, const int ai, const TGswSampleFFT *bki, const TGswParams *params);
 
 
-
-
-EXPORT void
-tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
-EXPORT void
-tfhe_blindRotateAndExtract(LweSample *result, const TorusPolynomial *v, const TGswSample *bk, const int32_t barb,
-                           const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
+EXPORT void tfhe_blindRotate(TLweSample *accum, const TGswSample *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
+EXPORT void tfhe_blindRotateAndExtract(LweSample *result, const TorusPolynomial *v, const TGswSample *bk, const int32_t barb, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
 EXPORT void tfhe_bootstrap(LweSample *result, const LweBootstrappingKey *bk, Torus32 mu, const LweSample *x, const int32_t window_size);
 EXPORT void tfhe_createLweBootstrappingKey(LweBootstrappingKey *bk, const LweKey *key_in, const TGswKey *rgsw_key, const int32_t window_size);
 
 
-EXPORT void tfhe_blindRotate_FFT(TLweSample *accum, const TGswSampleFFT *bk, const int32_t *bara, const int32_t n,
-                                 const TGswParams *bk_params, const int32_t window_size);
-EXPORT void
-tfhe_blindRotateAndExtract_FFT(LweSample *result, const TorusPolynomial *v, const TGswSampleFFT *bk, const int32_t barb,
-                               const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
+// Windowed FFT TFHE
+EXPORT void tGswFFTMulByXaiMinusOne(TGswSampleFFT *result, const int ai, const TGswSampleFFT *bki, const TGswParams *params);
+EXPORT void tfhe_MuxRotate_FFT(TLweSample *result, TGswSampleFFT *temp, const TLweSample *accum, const TGswSampleFFT* bk, const int32_t* bara, const TGswParams *bk_params, const int32_t n, const int32_t window_size);
+EXPORT void tfhe_blindRotate_FFT(TLweSample *accum, const TGswSampleFFT *bk, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
+EXPORT void tfhe_blindRotateAndExtract_FFT(LweSample *result, const TorusPolynomial *v, const TGswSampleFFT *bk, const int32_t barb, const int32_t *bara, const int32_t n, const TGswParams *bk_params, const int32_t window_size);
 EXPORT void tfhe_bootstrap_FFT(LweSample *result, const LweBootstrappingKeyFFT *bk, Torus32 mu, const LweSample *x, const int32_t window_size);
-// EXPORT void tfhe_bootstrapFFT(LweSample* result, const LweBootstrappingKeyFFT* bk, Torus32 mu1, Torus32 mu0, const LweSample* x);
-// EXPORT void tfhe_createLweBootstrappingKeyFFT(LweBootstrappingKeyFFT* bk, const LweKey* key_in, const TGswKey* rgsw_key);
-
-
-
+EXPORT void tfhe_createLweBootstrappingKeyFFT(LweBootstrappingKeyFFT* bk, const LweKey* key_in, const TGswKey* rgsw_key);
 
 
 #endif //TGSW_FUNCTIONS_H

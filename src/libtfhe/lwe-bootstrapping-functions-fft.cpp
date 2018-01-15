@@ -79,7 +79,7 @@ EXPORT void destroy_LweBootstrappingKeyFFT(LweBootstrappingKeyFFT *obj, const in
 }
 
 
-void tfhe_MuxRotate_FFT(TLweSample *result, TGswSampleFFT *temp, const TLweSample *accum, const TGswSampleFFT* bk, const int32_t* bara, const TGswParams *bk_params, const int32_t n, const int32_t window_size)
+EXPORT void tfhe_MuxRotate_FFT(TLweSample *result, TGswSampleFFT *temp, const TLweSample *accum, const TGswSampleFFT* bk, const int32_t* bara, const TGswParams *bk_params, const int32_t n, const int32_t window_size)
 {
 
     //int32_t bk_size = (1 << window_size) - 1; // numerator: 2^w - 1
@@ -306,20 +306,6 @@ EXPORT void tfhe_bootstrap_FFT(LweSample *result,
     delete_LweSample(u);
 }
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //allocate memory space for a LweBootstrappingKeyFFT
