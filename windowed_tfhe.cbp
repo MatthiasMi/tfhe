@@ -83,6 +83,7 @@
 		<Unit filename="src/libtfhe/fft_processors/spqlios/spqlios-ifft-unaligned.s" />
 		<Unit filename="src/libtfhe/fft_processors/spqlios/spqlios-model.cpp" />
 		<Unit filename="src/libtfhe/lwe-bootstrapping-functions-fft.cpp" />
+		<Unit filename="src/libtfhe/lwe-bootstrapping-functions-fft.h" />
 		<Unit filename="src/libtfhe/lwe-bootstrapping-functions.cpp" />
 		<Unit filename="src/libtfhe/lwe-functions.cpp" />
 		<Unit filename="src/libtfhe/lwe-keyswitch-functions.cpp" />

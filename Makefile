@@ -1,7 +1,8 @@
 CMAKE_COMPILER_OPTS=
-CMAKE_TESTS_OPTS=-DENABLE_TESTS=on -DENABLE_FFTW=on \
-		 -DENABLE_NAYUKI_PORTABLE=on -DENABLE_NAYUKI_AVX=on \
-		 -DENABLE_SPQLIOS_AVX=on -DENABLE_SPQLIOS_FMA=on
+CMAKE_INST_PATH=../project_fhe-nn/libs
+CMAKE_FFT_OPTS=-DENABLE_FFTW=on -DENABLE_NAYUKI_PORTABLE=on -DENABLE_NAYUKI_AVX=on \
+			   -DENABLE_SPQLIOS_AVX=on -DENABLE_SPQLIOS_FMA=on
+CMAKE_TESTS_OPTS=-DENABLE_TESTS=on ${CMAKE_FFT_OPTS}
 CMAKE_DTESTS_OPTS=${CMAKE_COMPILER_OPTS} -DCMAKE_BUILD_TYPE=debug ${CMAKE_TESTS_OPTS}
 CMAKE_OTESTS_OPTS=${CMAKE_COMPILER_OPTS} -DCMAKE_BUILD_TYPE=optim ${CMAKE_TESTS_OPTS}
 
@@ -42,8 +43,13 @@ src/test/googletest/CMakeLists.txt:
 	git submodule init
 	git submodule update
 
-windowed:
-	mkdir build; cd build; cmake ../src; cd ..
+windowed-optim:
+	mkdir build; cd build; cmake ../src -DCMAKE_INSTALL_PREFIX=${CMAKE_INST_PATH} -DCMAKE_BUILD_TYPE=optim ${CMAKE_FFT_OPTS};
+	cd ..
+
+windowed-debug:
+	mkdir build; cd build; cmake ../src -DCMAKE_BUILD_TYPE=debug ${CMAKE_FFT_OPTS};
+	cd ..
 
 alltests:
 	make distclean && make test CMAKE_COMPILER_OPTS="-DCMAKE_CXX_COMPILER=clang++-libc++ -DCMAKE_C_COMPILER=clang"
