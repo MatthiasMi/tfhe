@@ -42,7 +42,6 @@ int main(int argc, char **argv) {
 #ifndef NDEBUG
     cout << "DEBUG MODE!" << endl;
 #endif
-    const int32_t window_size = 1;
     const int32_t nb_samples = 64;
     const int32_t nb_trials = 10;
 

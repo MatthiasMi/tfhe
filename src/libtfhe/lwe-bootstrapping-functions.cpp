@@ -213,6 +213,7 @@ EXPORT void tfhe_createLweBootstrappingKey(
     //const int N = accum_params->N;
     //cout << "create the bootstrapping key bk ("  << "  " << n*kpl*(k+1)*N*4 << " bytes)" << endl;
     //cout << "  with noise_stdev: " << alpha << endl;
+
     int32_t bk_size = (1 << window_size) - 1; // numerator: 2^w - 1
     int32_t ks_size = window_size;            // denominator: w
     int32_t num_windows = n/ks_size;
@@ -225,36 +226,40 @@ EXPORT void tfhe_createLweBootstrappingKey(
     // E.g for window_size = 2:
     for (int32_t i = 0; i < n/2; i++) {
         tGswSymEncryptInt(&bk->bk[3*i  ], kin[2*i  ]*   kin[2*i+1] , alpha, rgsw_key);
-        tGswSymEncryptInt(&bk->bk[3*i+1], kin[2*i  ]*(1-kin[2*i+1]), alpha, rgsw_key);
-        tGswSymEncryptInt(&bk->bk[3*i+2], kin[2*i+1]*(1-kin[2*i  ]), alpha, rgsw_key);
+        tGswSymEncryptInt(&bk->bk[3*i+1], kin[2*i+1]*(1-kin[2*i  ]), alpha, rgsw_key);
+        tGswSymEncryptInt(&bk->bk[3*i+2], kin[2*i  ]*(1-kin[2*i+1]), alpha, rgsw_key);
     }
     */
 
     int32_t ks_pos = 0, bk_pos = 0;
     int32_t message, b, s;
 
-    for (int32_t window = 0; window < num_windows; window++) // Window
+    for (int32_t window = 0; window < num_windows; window++) // For each window
     {
-        for (int32_t subset = bk_size; 0 < subset ; subset--)     // Enumerate all subsets of [1:window_size], ommit empty set.
+        for (int32_t W = 0; W < bk_size; W++) // enumerate all subsets of [1:window_size], in 2 loops, omit empty set.
         {
-            message = 1; // To accumulate the sum: \sum_i ( s_i )
-            int32_t W = subset;
-            for (int32_t w = 0; w < window_size ; w++)
+            message = 1; // to accumulate the product: \prod ( s_i )( 1 - s_{i+1} )
+            int32_t subset = bk_size - W;
+            // cout << "Set bk[" << bk_pos << " + " << W << "] = 1";
+            for (int32_t w = 0; w < window_size; w++)
             {
-                // cout w;
-                b  =W&1; // Extract last bit
-                W>>=1;   // Divide by 2
-                if (b)
+                b  =subset&1; // Extract last bit
+                subset>>=1;   // Divide by 2
+                if (b){ // b == 1, take s, else invert.
                     s = kin[ks_pos + w];
-                else
+                    // cout << " * s["     << ks_pos << " + " << w << "]";
+                    }
+                else{ // b == 0, hence last bit was 0
                     s = 1 - kin[ks_pos + w];
-                message *= s;
+                    // cout << " * (1 - s[" << ks_pos << " + " << w << "])";
+                    }
+                message*=s;
             }
+            // cout << "\n";
             tGswSymEncryptInt(&bk->bk[bk_pos + W], message, alpha, rgsw_key);
-
-            bk_pos += bk_size;    // Compute start position of next window in arrays
             ks_pos += ks_size;
         }
+        bk_pos += bk_size;    // Compute start position of next window in arrays
     }
 
 }

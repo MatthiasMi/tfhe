@@ -29,6 +29,9 @@
 //  TFHE bootstrapping internal functions
 //////////////////////////////////////////////////
 
+// Set global window_size
+const int32_t window_size = 2;
+
 
 /** sets the seed of the random number generator to the given values */
 EXPORT void tfhe_random_generator_setSeed(uint32_t* values, int32_t size);

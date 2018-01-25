@@ -84,7 +84,6 @@ EXPORT void tfhe_MuxRotate_FFT(TLweSample *result, TGswSampleFFT *temp, const TL
 
     //int32_t bk_size = (1 << window_size) - 1; // numerator: 2^w - 1
     int32_t ks_size = window_size;            // denominator: w
-    // denominator: w
     int32_t num_windows = n/ks_size;
 
     int32_t bk_pos = 0;
@@ -225,16 +224,30 @@ EXPORT void tfhe_bootstrap_woKS_FFT(LweSample *result,
     // Modulus switching
     int32_t barb = modSwitchFromTorus32(x->b, Nx2);
 
-    /*
+
+    /* How bk is stored:
+    // E.g for window_size = 1:
+    for (int32_t i = 0; i < n; i++)
+        tGswSymEncryptInt(&bk->bk[i], kin[i], alpha, rgsw_key);
+
+    // E.g for window_size = 2:
+    for (int32_t i = 0; i < n/2; i++) {
+        tGswSymEncryptInt(&bk->bk[3*i  ], kin[2*i  ]*   kin[2*i+1] , alpha, rgsw_key);
+        tGswSymEncryptInt(&bk->bk[3*i+1], kin[2*i+1]*(1-kin[2*i  ]), alpha, rgsw_key);
+        tGswSymEncryptInt(&bk->bk[3*i+2], kin[2*i  ]*(1-kin[2*i+1]), alpha, rgsw_key);
+    }
+    */
+
+    /* How bara is stored:
     // E.g for window_size = 1:
     for (int32_t i = 0; i < n; i++)
         modSwitchFromTorus32(x->a[i], Nx2);
 
     // E.g for window_size = 2:
     for (int32_t i = 0; i < n/2; i++) { //TODO , const int32_t window_size = 1
-        bara[3*i] = modSwitchFromTorus32(x->a[2*i]+x->a[2*i+1], Nx2);
-        bara[3*i+1] = modSwitchFromTorus32(x->a[2*i], Nx2);
-        bara[3*i+2] = modSwitchFromTorus32(x->a[2*i+1], Nx2);
+        bara[3*i  ] = modSwitchFromTorus32(x->a[2*i  ]+x->a[2*i+1], Nx2);
+        bara[3*i+1] = modSwitchFromTorus32(x->a[2*i+1], Nx2);
+        bara[3*i+2] = modSwitchFromTorus32(x->a[2*i], Nx2);
     }
     */
 
@@ -248,27 +261,28 @@ EXPORT void tfhe_bootstrap_woKS_FFT(LweSample *result,
     for (int32_t window = 0; window < num_windows; window++) // Window
     {
         //std::cout << window << " ... current window index" << std::endl;
-        for (int32_t subset = bk_size; 0 < subset ; subset--)     // Enumerate all subsets of [1:window_size], ommit empty set.
+        for (int32_t W = 0; W < bk_size; W++) // enumerate all subsets of [1:window_size], in 2 loops, omit empty set.
         {
-            message = 1; // To accumulate the sum: \sum_i ( s_i )
-            int32_t W = subset;
-            //std::cout << W << std::endl;
+            message = 0; // To accumulate the sum: \sum_i ( s_i )
+            int32_t subset = bk_size - W;
+            //std::cout << subset << std::endl;
             for (int32_t w = 0; w < window_size ; w++)  // Loop through (little-endian) binary decomposition of W: window_size = log( bk_size )
             {
-                b  =W&1; // Extract last bit
-                W>>=1;   // Divide by 2
-                // std::cout << w << b << std::endl;
+                b  =subset&1; // Extract last bit
+                subset>>=1;   // Divide by 2
+                //std::cout << w << b << std::endl;
                 if (b)
                     message += x->a[a_pos + w];
-
             }
+            //cout  << message << endl<< endl;
             bara[bara_pos + W] = modSwitchFromTorus32(message, Nx2);
-
-            bara_pos += bk_size;    // Compute start position of next window in arrays
             a_pos += ks_size;
         }
+        bara_pos += bk_size;    // Compute start position of next window in arrays
     }
-    //std::cout << message << bara_pos << a_pos << window_size << " ... window_size means " << num_windows << " windows have to be processed to cover all " << n << " coefficients. Furthermore arrays have to be of appropriate size, and the storage overhead is: bk_size / ks_size = " << bk_size  << " / " << ks_size << " = "<< (double) bk_size / ks_size << std::endl;
+    //std::cout << message << bara_pos << a_pos << window_size << " ... window_size means " << num_windows << " windows have to be processed to cover all " << n << " coefficients.";
+    //std::cout << " Arrays have to be of appropriate size, and the storage overhead is: bk_size / ks_size = " << bk_size  << " / " << ks_size << " = "<< (double) bk_size / ks_size << std::endl;
+
 
     // the initial testvec = [mu,mu,mu,...,mu]
     for (int i = 0; i < N; i++) testvect->coefsT[i] = mu;

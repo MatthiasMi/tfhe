@@ -8,7 +8,7 @@
 using namespace std;
 
 namespace {
-    const int32_t window_size = 1;
+//    const int32_t window_size = 1;
 
     const LweParams* lweparams500 = new_LweParams(500,0.1,0.3);
     const LweParams* lweparams120 = new_LweParams(120,0.1,0.3);
@@ -486,7 +486,6 @@ namespace {
 
 
     class IOTest2 : public ::testing::Test {
-    const int32_t window_size = 1;
         public:
            //we don't do anything with the FFT section
            LweBootstrappingKeyFFT* new_LweBootstrappingKeyFFT(const LweBootstrappingKey*) { return 0x0; }
@@ -497,7 +496,6 @@ namespace {
     };
 
     TEST_F(IOTest2, TFheGateBootstrappingCloudKeySetIO) {
-    const int32_t window_size = 1;
         for (const TFheGateBootstrappingCloudKeySet* gbck: allgbck) {
             {
                 ostringstream oss;
@@ -512,7 +510,6 @@ namespace {
     }
 
     TEST_F(IOTest2, TFheGateBootstrappingSecretKeySetIO) {
-    const int32_t window_size = 1;
         for (const TFheGateBootstrappingSecretKeySet* gbsk: allgbsk) {
             {
                 ostringstream oss;
